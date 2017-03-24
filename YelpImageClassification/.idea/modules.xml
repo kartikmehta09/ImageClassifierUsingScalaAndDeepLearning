@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/yelpimageclassification.iml" filepath="$PROJECT_DIR$/.idea/modules/yelpimageclassification.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/yelpimageclassification-build.iml" filepath="$PROJECT_DIR$/.idea/modules/yelpimageclassification-build.iml" />
+    </modules>
+  </component>
+</project>
