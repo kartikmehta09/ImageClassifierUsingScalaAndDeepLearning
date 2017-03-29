@@ -1,13 +1,19 @@
 package com.neu.yelp.processing
 
 import java.awt.image.BufferedImage
+import java.io.File
+import javax.imageio.ImageIO
 
 import org.imgscalr.Scalr
+
+import scala.util.matching.Regex
 
 /**
   * Created by Pranay on 3/23/2017.
   */
-object imageUtils {
+object ImageUtils {
+
+  val patt_get_jpg_name = new Regex("[0-9]")
 
   // make image square
   def makeSquare(img:BufferedImage) = {
@@ -43,6 +49,13 @@ object imageUtils {
       val blue = (col & 0xff)
       pixels2gray(red,green,blue)
     }
+  }
+
+  def img2Map(imageDir:String,image2BizMap:Map[Int,String]): Map[Int,Vector[Int]] = {
+    val fileList = new File(imageDir).listFiles().filter( f =>{print(f.getName); !f.getName.contains("_") && image2BizMap.keySet.contains(patt_get_jpg_name.findAllIn(f.getName).mkString.toInt)}).toList
+    fileList.map(file=>patt_get_jpg_name.findAllIn(file.getName).mkString.toInt->{
+      image2Vector(resizeImg(makeSquare(ImageIO.read(file)),128,128))
+    }).toMap
   }
 
 }

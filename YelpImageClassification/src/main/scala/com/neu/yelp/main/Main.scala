@@ -2,8 +2,8 @@ package com.neu.yelp.main
 
 import java.io.File
 import javax.imageio.ImageIO
-import com.neu.yelp.processing.imageUtils
 
+import com.neu.yelp.processing.{Csv2Map, ImageUtils, TransformData}
 /**
   * Created by Pranay on 3/23/2017.
   */
@@ -11,18 +11,11 @@ object Main{
 
   def main(args: Array[String]): Unit = {
 
-    val imgArray = new File("C:\\Users\\Pranay\\Pictures\\Scala").listFiles.filter(_.getName.endsWith(".jpeg"))
+    val biz2LabelMap = Csv2Map.bizToLabel2Map("C:\\MyFiles\\NEU\\Scala\\Project\\Data\\train.csv")
+    val image2BizMap = Csv2Map.photoToBizId2Map("C:\\MyFiles\\NEU\\Scala\\Project\\Data\\train_photo_to_biz_ids.csv")
+    val img2DataMap = ImageUtils.img2Map("C:\\MyFiles\\NEU\\Scala\\Project\\Data\\train_photos",image2BizMap);
 
-    for{
-      ia <- imgArray
-    }yield{
-      val img = ImageIO.read(ia)
-      val imgSquare = imageUtils.makeSquare(img)
-      val imgResize = imageUtils.resizeImg(imgSquare,128,128)
-      val imgVector = imageUtils.image2Vector(imgResize)
-      imgVector.map(println)
-      println("------------------------------")
-    }
+    val transformedData = new TransformData(img2DataMap,image2BizMap,biz2LabelMap)
 
   }
 }
