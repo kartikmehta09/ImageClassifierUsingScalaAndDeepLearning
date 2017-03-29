@@ -6,11 +6,11 @@ import org.nd4s.Implicits.intMtrix2INDArray
 /**
   * Created by Pranay on 3/27/2017.
   */
-class MakeND4JDataSet {
+object MakeND4JDataSet {
 
-  def makeDataSet(transformedData: TransformData, bizClass: Int): DataSet = {
+  def makeDataSet(transformedData: TransformData, bizLabel: Int): DataSet = {
     val alignedXData = transformedData.getImgVectors.toNDArray
-    val alignedLabs = transformedData.getBizLabels.map(x => if (x.contains(bizClass)) Vector(1, 0) else Vector(0, 1)).toNDArray
+    val alignedLabs = transformedData.getBizLabels.map(x => if (x.contains(bizLabel)) Vector(1, 0) else Vector(0, 1)).toNDArray
     new DataSet(alignedXData, alignedLabs)
   }
 

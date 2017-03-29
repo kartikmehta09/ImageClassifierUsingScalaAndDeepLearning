@@ -1,4 +1,4 @@
-[info] Updating {file:/C:/MyFiles/NEU/Scala/YelpImageClassification/project/}yelpimageclassification-build...
+[info] Updating {file:/C:/MyFiles/NEU/Scala/Project/Git/CSYE7200_Scala_Project_Team7/YelpImageClassification/project/}yelpimageclassification-build...
 [debug] :: resolving dependencies :: default#yelpimageclassification-build;0.1-SNAPSHOT
 [debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
 [debug] 	validate = true
@@ -6074,19 +6074,19 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 1982ms :: artifacts dl 78ms
-[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT compile produced in C:\MyFiles\NEU\Scala\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-compile.xml
-[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT runtime produced in C:\MyFiles\NEU\Scala\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-runtime.xml
-[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT test produced in C:\MyFiles\NEU\Scala\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-test.xml
-[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT provided produced in C:\MyFiles\NEU\Scala\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-provided.xml
-[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT optional produced in C:\MyFiles\NEU\Scala\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-optional.xml
-[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT compile-internal produced in C:\MyFiles\NEU\Scala\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-compile-internal.xml
-[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT runtime-internal produced in C:\MyFiles\NEU\Scala\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-runtime-internal.xml
-[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT test-internal produced in C:\MyFiles\NEU\Scala\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-test-internal.xml
-[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT plugin produced in C:\MyFiles\NEU\Scala\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-plugin.xml
-[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT sources produced in C:\MyFiles\NEU\Scala\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-sources.xml
-[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT docs produced in C:\MyFiles\NEU\Scala\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-docs.xml
-[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT pom produced in C:\MyFiles\NEU\Scala\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-pom.xml
-[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT scala-tool produced in C:\MyFiles\NEU\Scala\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-scala-tool.xml
-[debug] 	resolve done (1982ms resolve - 78ms download)
+[debug] :: resolution report :: resolve 1675ms :: artifacts dl 86ms
+[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT compile produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-compile.xml
+[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT runtime produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-runtime.xml
+[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT test produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-test.xml
+[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT provided produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-provided.xml
+[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT optional produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-optional.xml
+[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT compile-internal produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-compile-internal.xml
+[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT runtime-internal produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-runtime-internal.xml
+[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT test-internal produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-test-internal.xml
+[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT plugin produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-plugin.xml
+[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT sources produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-sources.xml
+[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT docs produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-docs.xml
+[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT pom produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-pom.xml
+[debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT scala-tool produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-scala-tool.xml
+[debug] 	resolve done (1675ms resolve - 86ms download)
 [info] Done updating.

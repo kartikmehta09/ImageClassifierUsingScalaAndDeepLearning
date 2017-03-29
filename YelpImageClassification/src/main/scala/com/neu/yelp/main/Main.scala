@@ -4,6 +4,7 @@ import java.io.File
 import javax.imageio.ImageIO
 
 import com.neu.yelp.processing.{Csv2Map, ImageUtils, TransformData}
+import com.neu.yelp.cnn.TrainCNN.trainModel
 /**
   * Created by Pranay on 3/23/2017.
   */
@@ -17,5 +18,7 @@ object Main{
 
     val transformedData = new TransformData(img2DataMap,image2BizMap,biz2LabelMap)
 
+    val cnn0 = trainModel(transformedData, bizLabel = 0, saveNN = "C:\\MyFiles\\NEU\\Scala\\YelpImageClassification\\results\\modelsV0\\model0_img16k_epoch15_batch128_pixels64_nout100_200")
+    
   }
 }
