@@ -1,7 +1,7 @@
 package com.neu.yelp.postprocessing
 
 import org.nd4j.linalg.dataset.DataSet
-import org.nd4s.Implicits.intMtrix2INDArray
+import org.nd4s.Implicits._
 
 /**
   * Created by Pranay on 3/27/2017.

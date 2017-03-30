@@ -4,7 +4,7 @@
 		module="yelpimageclassification_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20170329213617"
+		publication="20170330193342"
 	>
 		<description>
 		YelpImageClassification
@@ -42,5 +42,6 @@
 		<dependency org="com.sksamuel.scrimage" name="scrimage-core_2.11" rev="2.1.0" conf="compile->default(compile)"/>
 		<dependency org="com.sksamuel.scrimage" name="scrimage-io-extra_2.11" rev="2.1.0" conf="compile->default(compile)"/>
 		<dependency org="com.sksamuel.scrimage" name="scrimage-filters_2.11" rev="2.1.0" conf="compile->default(compile)"/>
+		<dependency org="org.deeplearning4j" name="deeplearning4j-ui_2.11" rev="0.8.0" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

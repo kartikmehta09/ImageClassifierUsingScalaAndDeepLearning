@@ -7,6 +7,7 @@ import java.util.Random
 import com.neu.yelp.postprocessing.MakeND4JDataSet.makeDataSet
 import com.neu.yelp.postprocessing.TransformData
 import org.apache.commons.io.FileUtils
+import org.deeplearning4j.api.storage.StatsStorage
 import org.deeplearning4j.datasets.iterator.MultipleEpochsIterator
 import org.deeplearning4j.datasets.iterator.impl.ListDataSetIterator
 import org.deeplearning4j.eval.Evaluation
@@ -18,6 +19,9 @@ import org.deeplearning4j.nn.multilayer.MultiLayerNetwork
 import org.deeplearning4j.nn.weights.WeightInit
 import org.deeplearning4j.optimize.api.IterationListener
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener
+import org.deeplearning4j.ui.api.UIServer
+import org.deeplearning4j.ui.stats.StatsListener
+import org.deeplearning4j.ui.storage.InMemoryStatsStorage
 import org.nd4j.linalg.api.ndarray.INDArray
 import org.nd4j.linalg.dataset.SplitTestAndTrain
 import org.nd4j.linalg.factory.Nd4j
@@ -32,7 +36,14 @@ object TrainCNN {
 
   def trainModel(transformedData: TransformData, bizLabel:Int = 1, saveNN:String= ""): Unit ={
 
+
+
     val ds = makeDataSet(transformedData, bizLabel)
+
+    val uIServer = UIServer.getInstance()
+    val statsStorage:StatsStorage = new InMemoryStatsStorage()
+    uIServer.attach(statsStorage)
+
 
     println("start training!!")
     println("class for training: " + bizLabel)
@@ -84,7 +95,7 @@ object TrainCNN {
       .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
       .learningRate(0.01)
       .momentum(0.9)
-      .list(4)
+      .list()
       .layer(0, new ConvolutionLayer.Builder(6,6)
         .nIn(nChannels)
         .stride(2,2) // default stride(2,2)
@@ -115,6 +126,7 @@ object TrainCNN {
     val model: MultiLayerNetwork = new MultiLayerNetwork(conf)
     model.init()
     model.setListeners(Seq[IterationListener](new ScoreIterationListener(listenerFreq)).asJava)
+    model.setListeners(new StatsListener(statsStorage))
 
     log.info("Train model....")
     System.out.println("Training on " + dsiterTr.getLabels) // this might return null
@@ -148,6 +160,7 @@ object TrainCNN {
     }
 
     log.info("****************Example finished********************")
+
 
   }
 }

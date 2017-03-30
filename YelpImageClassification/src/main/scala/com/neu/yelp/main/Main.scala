@@ -6,6 +6,7 @@ import javax.imageio.ImageIO
 import com.neu.yelp.preprocessing.{Csv2Map, ImageUtils}
 import com.neu.yelp.cnn.TrainCNN.trainModel
 import com.neu.yelp.postprocessing.TransformData
+
 /**
   * Created by Pranay on 3/23/2017.
   */
