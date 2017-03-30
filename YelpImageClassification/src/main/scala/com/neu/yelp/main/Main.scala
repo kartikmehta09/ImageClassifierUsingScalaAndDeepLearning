@@ -19,7 +19,7 @@ object Main{
     // for biz_id 1000, 54 image ids
     println(image2BizMap.size)
 
-    val img2DataMap = ImageUtils.img2Map("data\\train_photos",image2BizMap);
+    val img2DataMap = ImageUtils.img2Map("C:\\MyFiles\\NEU\\Scala\\Project\\Data\\train_photos",image2BizMap);
 
     // for biz_id 1000, 54 image ids
     println(img2DataMap.size)
