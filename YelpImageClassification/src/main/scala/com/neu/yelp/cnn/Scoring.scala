@@ -1,6 +1,6 @@
 package com.neu.yelp.cnn
 
-import com.neu.yelp.processing.TransformData
+import com.neu.yelp.postprocessing.TransformData
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork
 import org.nd4j.linalg.api.ndarray.INDArray
 

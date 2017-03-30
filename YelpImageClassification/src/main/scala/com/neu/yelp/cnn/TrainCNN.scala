@@ -4,8 +4,8 @@ import java.io.{DataOutputStream, File}
 import java.nio.file.{Files, Paths}
 import java.util.Random
 
-import com.neu.yelp.processing.TransformData
-import com.neu.yelp.processing.MakeND4JDataSet.makeDataSet
+import com.neu.yelp.postprocessing.MakeND4JDataSet.makeDataSet
+import com.neu.yelp.postprocessing.TransformData
 import org.apache.commons.io.FileUtils
 import org.deeplearning4j.datasets.iterator.MultipleEpochsIterator
 import org.deeplearning4j.datasets.iterator.impl.ListDataSetIterator
@@ -34,7 +34,7 @@ object TrainCNN {
 
     val ds = makeDataSet(transformedData, bizLabel)
 
-    println("commence training!!")
+    println("start training!!")
     println("class for training: " + bizLabel)
 
     val begintime = System.currentTimeMillis()
