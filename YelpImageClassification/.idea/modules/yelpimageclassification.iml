@@ -24,32 +24,13 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="SBT: org.scala-lang:scala-library:2.11.8:jar" level="project" />
-    <orderEntry type="library" name="SBT: org.scalatest:scalatest_2.11:2.2.4:jar" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="SBT: org.scala-lang.modules:scala-xml_2.11:1.0.4:jar" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="SBT: org.scala-lang.modules:scala-xml_2.11:1.0.2:jar" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="SBT: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.4:jar" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="SBT: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.1:jar" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="SBT: org.scala-lang:scala-compiler:2.11.8:jar" level="project" />
-    <orderEntry type="library" name="SBT: org.nd4j:nd4s_2.11:0.4-rc3.8:jar" level="project" />
-    <orderEntry type="library" name="SBT: org.nd4j:nd4j-x86:0.4-rc3.8:jar" level="project" />
-    <orderEntry type="library" name="SBT: org.jblas:jblas:1.2.4:jar" level="project" />
-    <orderEntry type="library" name="SBT: net.sourceforge.f2j:arpack_combined_all:0.1:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:netlib-native_system-win-x86_64:1.1:natives:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:netlib-native_system-win-i686:1.1:natives:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:netlib-native_system-osx-x86_64:1.1:natives:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:netlib-native_system-linux-x86_64:1.1:natives:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:netlib-native_system-linux-i686:1.1:natives:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:netlib-native_system-linux-armhf:1.1:natives:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:netlib-native_ref-win-x86_64:1.1:natives:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:netlib-native_ref-win-i686:1.1:natives:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:netlib-native_ref-osx-x86_64:1.1:natives:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:netlib-native_ref-linux-x86_64:1.1:natives:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:netlib-native_ref-linux-i686:1.1:natives:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:netlib-native_ref-linux-armhf:1.1:natives:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:native_system-java:1.1:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:native_ref-java:1.1:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil.netlib:core:1.1.2:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.fommil:jniloader:1.1:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.nd4j:nd4j-native-platform:0.8.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.nd4j:nd4j-native:0.8.0:macosx-x86_64:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.nd4j:nd4j-native:0.8.0:linux-x86_64:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.nd4j:nd4j-native:0.8.0:linux-ppc64le:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.nd4j:nd4j-native:0.8.0:android-x86:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.nd4j:nd4j-native:0.8.0:android-arm:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.nd4j:nd4j-native:0.8.0:jar" level="project" />
     <orderEntry type="library" name="SBT: com.fasterxml.jackson.core:jackson-databind:2.5.1:jar" level="project" />
     <orderEntry type="library" name="SBT: com.fasterxml.jackson.core:jackson-core:2.5.1:jar" level="project" />
     <orderEntry type="library" name="SBT: com.fasterxml.jackson.core:jackson-annotations:2.5.1:jar" level="project" />
@@ -327,5 +308,23 @@
     <orderEntry type="library" name="SBT: xml-apis:xml-apis:1.4.01:jar" level="project" />
     <orderEntry type="library" name="SBT: junit:junit:4.11:jar" level="project" />
     <orderEntry type="library" name="SBT: org.hamcrest:hamcrest-core:1.3:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.nativelibs4java:scalaxy-loops_2.11:0.3.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.nativelibs4java:scalaxy-streams_2.11:0.3.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.bytedeco.javacpp-presets:openblas:0.2.19-1.3:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.bytedeco.javacpp-presets:openblas:0.2.19-1.3:android-arm:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.bytedeco.javacpp-presets:openblas:0.2.19-1.3:android-x86:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.bytedeco.javacpp-presets:openblas:0.2.19-1.3:linux-armhf:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.bytedeco.javacpp-presets:openblas:0.2.19-1.3:linux-ppc64le:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.bytedeco.javacpp-presets:openblas:0.2.19-1.3:linux-x86:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.bytedeco.javacpp-presets:openblas:0.2.19-1.3:linux-x86_64:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.bytedeco.javacpp-presets:openblas:0.2.19-1.3:macosx-x86_64:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.bytedeco.javacpp-presets:openblas:0.2.19-1.3:windows-x86:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.bytedeco.javacpp-presets:openblas:0.2.19-1.3:windows-x86_64:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.bytedeco.javacpp-presets:openblas-platform:0.2.19-1.3:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.nd4j:nd4j-native:0.8.0:windows-x86_64:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.nd4j:nd4s_2.11:0.8.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.scala-lang:scala-compiler:2.11.8:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.scala-lang.modules:scala-xml_2.11:1.0.4:jar" level="project" />
   </component>
 </module>

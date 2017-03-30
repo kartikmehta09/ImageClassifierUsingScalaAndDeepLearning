@@ -1,7 +1,7 @@
 [debug] Other repositories:
 [debug] Default repositories:
-[debug] Using inline dependencies specified in Scala.
 [debug] no default cache defined: set to C:\Users\Pranay\.ivy2\cache
+[debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: default#yelpimageclassification$sbt_2.10;1.0
 [debug] 	confs: [default]
 [debug] 	validate = true
@@ -1775,9 +1775,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.13!apply-macro.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
-[debug] :: resolution report :: resolve 1455ms :: artifacts dl 107ms
+[debug] :: resolution report :: resolve 820ms :: artifacts dl 57ms
 [debug] 	report for default#yelpimageclassification$sbt_2.10;1.0 default produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\target\resolution-cache\reports\default-yelpimageclassification$sbt_2.10-default.xml
-[debug] 	resolve done (1455ms resolve - 107ms download)
+[debug] 	resolve done (820ms resolve - 57ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: default#yelpimageclassification$sources_2.10;1.0
 [debug] 	confs: [default]
@@ -2471,6 +2471,6 @@
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.6!scala-compiler.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#interface;0.13.13!interface.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#logging;0.13.13!logging.jar(src)
-[debug] :: resolution report :: resolve 292ms :: artifacts dl 109ms
+[debug] :: resolution report :: resolve 230ms :: artifacts dl 51ms
 [debug] 	report for default#yelpimageclassification$sources_2.10;1.0 default produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\target\resolution-cache\reports\default-yelpimageclassification$sources_2.10-default.xml
-[debug] 	resolve done (292ms resolve - 109ms download)
+[debug] 	resolve done (230ms resolve - 51ms download)
