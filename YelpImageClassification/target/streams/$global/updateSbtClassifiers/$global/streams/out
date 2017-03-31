@@ -1,6 +1,5 @@
 [debug] Other repositories:
 [debug] Default repositories:
-[debug] no default cache defined: set to C:\Users\Pranay\.ivy2\cache
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: default#yelpimageclassification$sbt_2.10;1.0
 [debug] 	confs: [default]
@@ -10,6 +9,7 @@
 [debug] == resolving dependencies for default#yelpimageclassification$sbt_2.10;1.0 [default]
 [debug] == resolving dependencies default#yelpimageclassification$sbt_2.10;1.0->org.scala-sbt#sbt;0.13.13 [default->default(compile)]
 [info] Resolving org.scala-sbt#sbt;0.13.13 ...
+[debug] no default cache defined: set to C:\Users\Pranay\.ivy2\cache
 [debug] sbt-chain: Checking cache for: dependency: org.scala-sbt#sbt;0.13.13 {default=[default(compile)]}
 [debug] sbt-chain: module revision found in cache: org.scala-sbt#sbt;0.13.13
 [debug] 	found org.scala-sbt#sbt;0.13.13 in sbt-chain
@@ -1775,9 +1775,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.13!apply-macro.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
-[debug] :: resolution report :: resolve 820ms :: artifacts dl 57ms
+[debug] :: resolution report :: resolve 1833ms :: artifacts dl 78ms
 [debug] 	report for default#yelpimageclassification$sbt_2.10;1.0 default produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\target\resolution-cache\reports\default-yelpimageclassification$sbt_2.10-default.xml
-[debug] 	resolve done (820ms resolve - 57ms download)
+[debug] 	resolve done (1833ms resolve - 78ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: default#yelpimageclassification$sources_2.10;1.0
 [debug] 	confs: [default]
@@ -2471,6 +2471,6 @@
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.6!scala-compiler.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#interface;0.13.13!interface.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#logging;0.13.13!logging.jar(src)
-[debug] :: resolution report :: resolve 230ms :: artifacts dl 51ms
+[debug] :: resolution report :: resolve 432ms :: artifacts dl 107ms
 [debug] 	report for default#yelpimageclassification$sources_2.10;1.0 default produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\target\resolution-cache\reports\default-yelpimageclassification$sources_2.10-default.xml
-[debug] 	resolve done (230ms resolve - 51ms download)
+[debug] 	resolve done (432ms resolve - 107ms download)

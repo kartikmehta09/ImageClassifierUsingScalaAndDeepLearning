@@ -3,9 +3,7 @@ package com.neu.yelp.preprocessing
 import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
-
 import org.imgscalr.Scalr
-
 import scala.util.matching.Regex
 
 /**
