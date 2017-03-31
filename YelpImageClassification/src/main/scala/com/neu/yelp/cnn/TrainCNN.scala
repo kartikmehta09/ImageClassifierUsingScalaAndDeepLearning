@@ -15,7 +15,7 @@ import org.deeplearning4j.nn.api.OptimizationAlgorithm
 import org.deeplearning4j.nn.conf.inputs.InputType
 import org.deeplearning4j.nn.conf.layers.setup.ConvolutionLayerSetup
 import org.deeplearning4j.nn.conf.layers.{ConvolutionLayer, DenseLayer, OutputLayer, SubsamplingLayer}
-import org.deeplearning4j.nn.conf.{MultiLayerConfiguration, NeuralNetConfiguration}
+import org.deeplearning4j.nn.conf.{MultiLayerConfiguration, NeuralNetConfiguration, Updater}
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork
 import org.deeplearning4j.nn.weights.WeightInit
 import org.deeplearning4j.optimize.api.IterationListener
@@ -62,8 +62,8 @@ object TrainCNN {
     val splitTrainNum = math.ceil(ndds.numExamples*0.8).toInt // 80/20 training/test split
     val seed = 123
     val listenerFreq = 1
-    val nepochs = 20
-    val nbatch = 128 // recommended between 16 and 128
+    val nepochs = 1
+    val nbatch = 16 // recommended between 16 and 128
 
     //val nOutPar = 500 // default was 1000.  # of output nodes in first layer
 
@@ -95,6 +95,7 @@ object TrainCNN {
       .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
       .learningRate(0.01)
       .momentum(0.9)
+      .updater(Updater.NESTEROVS)
       .list()
       .layer(0, new ConvolutionLayer.Builder(6,6)
         .nIn(nChannels)
@@ -102,32 +103,39 @@ object TrainCNN {
         .nOut(20) // # of feature maps
         .dropOut(0.5)
         .activation(Activation.RELU) // rectified linear units
-        .weightInit(WeightInit.RELU)
+        .weightInit(WeightInit.XAVIER)
         .build())
       .layer(1, new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX, Array(2,2))
         .build())
       .layer(2, new DenseLayer.Builder()
-        .nOut(40)
+        .nOut(20)
         .activation(Activation.RELU)
         .build())
-      .layer(3, new OutputLayer.Builder(LossFunctions.LossFunction.MCXENT)
+/*      .layer(2, new DenseLayer.Builder()
+        .nOut(20)
+        .activation(Activation.RELU)
+        .build())*/
+      .layer(3, new OutputLayer.Builder(LossFunctions.LossFunction.L2)
         .nOut(outputNum)
         .weightInit(WeightInit.XAVIER)
         .activation(Activation.SOFTMAX)
         .build())
       .backprop(true).pretrain(false)
 
-    //new ConvolutionLayerSetup(builder, numRows, numColumns, nChannels)
+    new ConvolutionLayerSetup(builder, numRows, numColumns, nChannels)
 
-    builder.setInputType(InputType.convolutional(numRows, numColumns, nChannels))
+    //builder.setInputType(InputType.convolutional(numRows, numColumns, nChannels))
 
     val conf: MultiLayerConfiguration = builder.build()
 
     log.info("Build model....")
     val model: MultiLayerNetwork = new MultiLayerNetwork(conf)
     model.init()
-    model.setListeners(Seq[IterationListener](new ScoreIterationListener(listenerFreq)).asJava)
-    model.setListeners(new StatsListener(statsStorage))
+
+    val scoreListerner: IterationListener = new ScoreIterationListener(listenerFreq)
+    val statsListerner: IterationListener = new StatsListener(statsStorage)
+
+    model.setListeners(Seq[IterationListener](scoreListerner, statsListerner).asJava)
 
     log.info("Train model....")
     System.out.println("Training on " + dsiterTr.getLabels) // this might return null

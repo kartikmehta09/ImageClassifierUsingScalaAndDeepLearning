@@ -35,16 +35,16 @@
         "layerName" : "layer0",
         "learningRate" : 0.01,
         "learningRateSchedule" : null,
-        "momentum" : "NaN",
-        "momentumSchedule" : null,
+        "momentum" : 0.9,
+        "momentumSchedule" : { },
         "nin" : 1,
         "nout" : 20,
         "padding" : [ 0, 0 ],
         "rho" : "NaN",
         "rmsDecay" : "NaN",
         "stride" : [ 2, 2 ],
-        "updater" : "SGD",
-        "weightInit" : "RELU"
+        "updater" : "NESTEROVS",
+        "weightInit" : "XAVIER"
       }
     },
     "leakyreluAlpha" : 0.0,
@@ -95,15 +95,15 @@
         "layerName" : "layer1",
         "learningRate" : 0.01,
         "learningRateSchedule" : null,
-        "momentum" : "NaN",
-        "momentumSchedule" : null,
+        "momentum" : 0.9,
+        "momentumSchedule" : { },
         "padding" : [ 0, 0 ],
         "pnorm" : 0,
         "poolingType" : "MAX",
         "rho" : "NaN",
         "rmsDecay" : "NaN",
         "stride" : [ 2, 2 ],
-        "updater" : "SGD",
+        "updater" : "NESTEROVS",
         "weightInit" : "XAVIER"
       }
     },
@@ -155,13 +155,13 @@
         "layerName" : "layer2",
         "learningRate" : 0.01,
         "learningRateSchedule" : null,
-        "momentum" : "NaN",
-        "momentumSchedule" : null,
+        "momentum" : 0.9,
+        "momentumSchedule" : { },
         "nin" : 4500,
-        "nout" : 40,
+        "nout" : 20,
         "rho" : "NaN",
         "rmsDecay" : "NaN",
-        "updater" : "SGD",
+        "updater" : "NESTEROVS",
         "weightInit" : "XAVIER"
       }
     },
@@ -217,16 +217,16 @@
         "learningRate" : 0.01,
         "learningRateSchedule" : null,
         "lossFn" : {
-          "MCXENT" : { }
+          "L2" : { }
         },
-        "lossFunction" : "MCXENT",
-        "momentum" : "NaN",
-        "momentumSchedule" : null,
-        "nin" : 40,
+        "lossFunction" : null,
+        "momentum" : 0.9,
+        "momentumSchedule" : { },
+        "nin" : 20,
         "nout" : 2,
         "rho" : "NaN",
         "rmsDecay" : "NaN",
-        "updater" : "SGD",
+        "updater" : "NESTEROVS",
         "weightInit" : "XAVIER"
       }
     },
@@ -267,7 +267,7 @@
       }
     }
   },
-  "iterationCount" : 20,
+  "iterationCount" : 3,
   "pretrain" : false,
   "tbpttBackLength" : 20,
   "tbpttFwdLength" : 20
