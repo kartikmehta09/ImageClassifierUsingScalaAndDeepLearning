@@ -53,7 +53,7 @@ object ImageUtils {
     // this will load only required images for the biz ids
     val fileList = new File(imageDir).listFiles().filter( f =>{!f.getName.contains("_") && image2BizMap.keySet.contains(patt_get_jpg_name.findAllIn(f.getName).mkString.toInt)}).toList
     fileList.map(file=>patt_get_jpg_name.findAllIn(file.getName).mkString.toInt->{
-      image2Vector(resizeImg(makeSquare(ImageIO.read(file)),64,64))
+      image2Vector(resizeImg(makeSquare(ImageIO.read(file)),128,128))
     }).toMap
   }
 

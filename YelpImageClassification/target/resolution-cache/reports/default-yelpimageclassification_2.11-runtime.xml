@@ -7,7 +7,7 @@
 		revision="1.0"
 		conf="runtime"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20170330194535"/>
+		date="20170331153428"/>
 	<dependencies>
 		<module organisation="org.nd4j" name="nd4j-backends">
 			<revision name="0.8.0" status="release" pubdate="20170310210325" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="177">
@@ -110,12 +110,12 @@
 			</revision>
 		</module>
 		<module organisation="org.nd4j" name="nd4j-native-platform">
-			<revision name="0.8.0" status="release" pubdate="20170310192535" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="167">
+			<revision name="0.8.0" status="release" pubdate="20170310192535" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="167">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
-				<metadata-artifact status="successful" details="" size="2702" time="50" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native-platform\ivy-0.8.0.xml" searched="true" original-local-location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native-platform\ivy-0.8.0.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/nd4j/nd4j-native-platform/0.8.0/nd4j-native-platform-0.8.0.pom"/>
+				<metadata-artifact status="no" details="" size="11036" time="0" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native-platform\ivy-0.8.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/nd4j/nd4j-native-platform/0.8.0/nd4j-native-platform-0.8.0.pom"/>
 				<caller organisation="default" name="yelpimageclassification_2.11" conf="compile, runtime" rev="0.8.0" rev-constraint-default="0.8.0" rev-constraint-dynamic="0.8.0" callerrev="1.0"/>
 				<artifacts>
-					<artifact name="nd4j-native-platform" type="jar" ext="jar" status="successful" details="" size="1646" time="73" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native-platform\jars\nd4j-native-platform-0.8.0.jar">
+					<artifact name="nd4j-native-platform" type="jar" ext="jar" status="no" details="" size="1646" time="0" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native-platform\jars\nd4j-native-platform-0.8.0.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/nd4j/nd4j-native-platform/0.8.0/nd4j-native-platform-0.8.0.jar"/>
 					</artifact>
 				</artifacts>
@@ -1902,19 +1902,19 @@
 					<artifact name="nd4j-native" type="jar" ext="jar" extra-classifier="windows-x86_64" status="no" details="" size="1405966" time="0" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native\jars\nd4j-native-0.8.0-windows-x86_64.jar">
 						<origin-location is-local="false" location="UNKNOWN"/>
 					</artifact>
-					<artifact name="nd4j-native" type="jar" ext="jar" extra-classifier="android-x86" status="successful" details="" size="1221106" time="288" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native\jars\nd4j-native-0.8.0-android-x86.jar">
+					<artifact name="nd4j-native" type="jar" ext="jar" extra-classifier="android-x86" status="no" details="" size="1221106" time="0" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native\jars\nd4j-native-0.8.0-android-x86.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/nd4j/nd4j-native/0.8.0/nd4j-native-0.8.0-android-x86.jar"/>
 					</artifact>
-					<artifact name="nd4j-native" type="jar" ext="jar" extra-classifier="linux-ppc64le" status="successful" details="" size="608875" time="127" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native\jars\nd4j-native-0.8.0-linux-ppc64le.jar">
+					<artifact name="nd4j-native" type="jar" ext="jar" extra-classifier="linux-ppc64le" status="no" details="" size="608875" time="0" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native\jars\nd4j-native-0.8.0-linux-ppc64le.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/nd4j/nd4j-native/0.8.0/nd4j-native-0.8.0-linux-ppc64le.jar"/>
 					</artifact>
-					<artifact name="nd4j-native" type="jar" ext="jar" extra-classifier="linux-x86_64" status="successful" details="" size="762406" time="132" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native\jars\nd4j-native-0.8.0-linux-x86_64.jar">
+					<artifact name="nd4j-native" type="jar" ext="jar" extra-classifier="linux-x86_64" status="no" details="" size="762406" time="0" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native\jars\nd4j-native-0.8.0-linux-x86_64.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/nd4j/nd4j-native/0.8.0/nd4j-native-0.8.0-linux-x86_64.jar"/>
 					</artifact>
-					<artifact name="nd4j-native" type="jar" ext="jar" extra-classifier="macosx-x86_64" status="successful" details="" size="1165552" time="210" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native\jars\nd4j-native-0.8.0-macosx-x86_64.jar">
+					<artifact name="nd4j-native" type="jar" ext="jar" extra-classifier="macosx-x86_64" status="no" details="" size="1165552" time="0" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native\jars\nd4j-native-0.8.0-macosx-x86_64.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/nd4j/nd4j-native/0.8.0/nd4j-native-0.8.0-macosx-x86_64.jar"/>
 					</artifact>
-					<artifact name="nd4j-native" type="jar" ext="jar" extra-classifier="android-arm" status="successful" details="" size="872068" time="143" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native\jars\nd4j-native-0.8.0-android-arm.jar">
+					<artifact name="nd4j-native" type="jar" ext="jar" extra-classifier="android-arm" status="no" details="" size="872068" time="0" location="C:\Users\Pranay\.ivy2\cache\org.nd4j\nd4j-native\jars\nd4j-native-0.8.0-android-arm.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/nd4j/nd4j-native/0.8.0/nd4j-native-0.8.0-android-arm.jar"/>
 					</artifact>
 				</artifacts>

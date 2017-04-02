@@ -4,7 +4,7 @@
 		module="yelpimageclassification$sources_2.10"
 		revision="1.0"
 		status="integration"
-		publication="20170330202907"
+		publication="20170331153440"
 	/>
 	<configurations>
 		<conf name="default" visibility="public" description=""/>
