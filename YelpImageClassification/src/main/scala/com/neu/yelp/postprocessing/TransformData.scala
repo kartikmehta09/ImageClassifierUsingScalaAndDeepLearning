@@ -3,7 +3,7 @@ package com.neu.yelp.postprocessing
 /**
   * Created by Pranay on 3/27/2017.
   */
-class TransformData(img2DataMap:Map[Int,Vector[Int]],image2BizMap:Map[Int,String],biz2LabelMap:Map[String,List[Int]]) {
+class TransformData(img2DataMap:Map[Int,Vector[Int]],image2BizMap:Map[Int,String],biz2LabelMap:Map[String,List[Int]],mode: String) {
 
   def transformBizImageIds(img2DataMap:Map[Int,Vector[Int]],image2BizMap:Map[Int,String]): List[(Int,String,Vector[Int])] ={
     val rowIndices = img2DataMap.keySet.toList
@@ -18,17 +18,23 @@ class TransformData(img2DataMap:Map[Int,Vector[Int]],image2BizMap:Map[Int,String
   }
 
 
-  def transform(img2DataMap:Map[Int,Vector[Int]],image2BizMap:Map[Int,String],biz2LabelMap:Map[String,List[Int]]): List[(Int,String,Vector[Int],List[Int])] ={
+  def transform(img2DataMap:Map[Int,Vector[Int]],image2BizMap:Map[Int,String],biz2LabelMap:Map[String,List[Int]], mode: String): List[(Int,String,Vector[Int],List[Int])] ={
     val bizImageIds = transformBizImageIds(img2DataMap,image2BizMap)
     for{
       (pid,bid,data) <- bizImageIds
     }yield {
-      val labs = if(biz2LabelMap.keySet.contains(bid)) biz2LabelMap.get(bid).get else List[Int]()
-      (pid,bid,data,labs)
+
+      var labels = List[Int]()
+      if(mode != "test"){
+        labels = if(biz2LabelMap.keySet.contains(bid)) biz2LabelMap.get(bid).get else List[Int]()
+      }
+      (pid,bid,data,labels)
+
+
     }
   }
 
-  lazy val data = transform(img2DataMap,image2BizMap,biz2LabelMap);
+  lazy val data = transform(img2DataMap,image2BizMap,biz2LabelMap,mode);
 
   def getImgIds = data.map(_._1)
   def getBizIds = data.map(_._2)

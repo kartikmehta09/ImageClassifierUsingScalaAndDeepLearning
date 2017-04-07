@@ -26,4 +26,9 @@ object Csv2Map {
     val csv = readcsv(csvLocation)
     csv.drop(1).map(x => (x(0), (x(1).split(" ").map(_.toInt)).toList)).toMap
   }
+
+  def getUniqueBizIDForTest(csvLocation: String): List[String] = {
+    val csv = readcsv(csvLocation)
+    csv.drop(1).map(x => (x(0))).toList
+  }
 }
