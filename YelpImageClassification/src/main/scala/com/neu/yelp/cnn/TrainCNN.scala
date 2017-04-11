@@ -92,6 +92,7 @@ object TrainCNN {
       .seed(seed)
       .iterations(iterations) // Training iterations as above
       .regularization(true)
+      .miniBatch(true)
       .l2(0.0005)
       .learningRate(0.01)
       .weightInit(WeightInit.XAVIER)
