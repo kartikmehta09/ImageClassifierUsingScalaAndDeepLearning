@@ -24,7 +24,7 @@ object Main{
     val img2DataMap = ImageUtils.img2Map("C:\\BigDataScalaProject\\Yelp Image Classification Model\\Dataset\\train_photos\\train_photos\\train_photos",image2BizMap);
 
     println("Images Data : " + img2DataMap.size)
-    
+
     val transformedData = new TransformData(img2DataMap,image2BizMap,biz2LabelMap,"train")
 
     trainModel(transformedData, bizLabel = 1, saveNN = "results\\models_1")

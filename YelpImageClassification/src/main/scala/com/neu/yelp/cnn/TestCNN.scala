@@ -11,6 +11,7 @@ import org.nd4j.linalg.dataset.DataSet
 
 /**
   * Created by ManasiLaddha on 4/6/2017.
+  * Modified by Kunal on 4/11/2017
   */
 object TestCNN {
 
@@ -23,8 +24,6 @@ object TestCNN {
      val predictionTest = Scoring.scoreModel(modelTest,nddarr)
 
      println(predictionTest)
-
-
 
   }
 
