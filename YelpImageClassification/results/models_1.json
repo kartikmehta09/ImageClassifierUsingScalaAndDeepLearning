@@ -390,7 +390,7 @@
       }
     }
   },
-  "iterationCount" : 50,
+  "iterationCount" : 5,
   "pretrain" : false,
   "tbpttBackLength" : 20,
   "tbpttFwdLength" : 20

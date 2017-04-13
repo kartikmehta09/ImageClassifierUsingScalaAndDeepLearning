@@ -4,7 +4,7 @@
 		module="yelpimageclassification_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20170406172802"
+		publication="20170411003048"
 	>
 		<description>
 		YelpImageClassification

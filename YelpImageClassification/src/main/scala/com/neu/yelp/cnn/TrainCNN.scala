@@ -50,8 +50,9 @@ object TrainCNN {
 
     val begintime = System.currentTimeMillis()
 
-    lazy val log = LoggerFactory.getLogger(TrainCNN.getClass)
-    log.info("Begin time: " + java.util.Calendar.getInstance().getTime())
+    //lazy val log = LoggerFactory.getLogger(TrainCNN.getClass)
+    //log.info("Begin time: " + java.util.Calendar.getInstance().getTime())
+    println("Begin time: " + java.util.Calendar.getInstance().getTime())
 
     val nfeatures = ndds.getFeatures.getRow(0).length // hyper, hyper parameter
     val numRows =  Math.sqrt(nfeatures).toInt // numRows * numColumns must equal columns in initial data * channels
@@ -73,10 +74,12 @@ object TrainCNN {
     /**
       *Set a neural network configuration with multiple layers
       */
-    log.info("Load data....")
+    //log.info("Load data....")
+    println("Load data....")
+
     ndds.normalize()
     //ndds.normalizeZeroMeanZeroUnitVariance() // this changes ds
-    System.out.println("Loaded " + ndds.labelCounts)
+    println("Loaded " + ndds.labelCounts)
     Nd4j.shuffle(ndds.getFeatureMatrix, new Random(seed), 1) // this changes ds.  Shuffles rows
     Nd4j.shuffle(ndds.getLabels, new Random(seed), 1) // this changes ds.  Shuffles labels accordingly
     val trainTest: SplitTestAndTrain = ndds.splitTestAndTrain(splitTrainNum, new Random(seed)) // Random Seed not needed here
@@ -92,7 +95,7 @@ object TrainCNN {
       .seed(seed)
       .iterations(iterations) // Training iterations as above
       .regularization(true)
-      .miniBatch(true)
+      //.miniBatch(true)
       .l2(0.0005)
       .learningRate(0.01)
       .weightInit(WeightInit.XAVIER)
@@ -133,7 +136,8 @@ object TrainCNN {
 
     val conf: MultiLayerConfiguration = builder.build()
 
-    log.info("Build model....")
+    //log.info("Build model....")
+    println("Build model....")
     val model: MultiLayerNetwork = new MultiLayerNetwork(conf)
     model.init()
 
@@ -142,27 +146,31 @@ object TrainCNN {
 
     model.setListeners(Seq[IterationListener](scoreListerner, statsListerner).asJava)
 
-    log.info("Train model....")
-    System.out.println("Training on " + dsiterTr.getLabels) // this might return null
+    //log.info("Train model....")
+    println(("Train model...."))
+    println("Training on " + dsiterTr.getLabels) // this might return null
     model.fit(epochitTr)
 
     // I think this could be done without an iterator and batches.
-    log.info("Evaluate model....")
-    System.out.println("Testing on ...")
+    //log.info("Evaluate model....")
+    println("Evaluate model....")
+    println("Testing on ...")
     val eval = new Evaluation(outputNum)
     while(epochitTe.hasNext) {
       val testDS = epochitTe.next(nbatch)
       val output: INDArray = model.output(testDS.getFeatureMatrix)
       eval.eval(testDS.getLabels(), output)
     }
-    System.out.println(eval.stats())
+    println(eval.stats())
 
 
     val endtime = System.currentTimeMillis()
-    log.info("End time: " + java.util.Calendar.getInstance().getTime())
-    log.info("computation time: " + (endtime-begintime)/1000.0 + " seconds")
-
-    log.info("Write results....")
+    //log.info("End time: " + java.util.Calendar.getInstance().getTime())
+    println("End time: " + java.util.Calendar.getInstance().getTime())
+    //log.info("computation time: " + (endtime-begintime)/1000.0 + " seconds")
+    println("computation time: " + (endtime-begintime)/1000.0 + " seconds")
+    //log.info("Write results....")
+    println("Write results....")
 
     if(!saveNN.isEmpty) {
       // model config
@@ -173,8 +181,8 @@ object TrainCNN {
       Nd4j.write(model.params(), dos)
     }
 
-    log.info("****************Example finished********************")
-
+    //log.info("****************Example finished********************")
+    println("****************Example finished********************")
 
   }
 }
