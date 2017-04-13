@@ -1,3 +1,3 @@
 # CSYE7200_Scala_Project_Team7
 Yelp Image Classification Model
-using scala and deeplearning4j
+using scala, deeplearning4j and play
