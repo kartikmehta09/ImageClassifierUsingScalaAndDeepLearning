@@ -19,31 +19,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="TransformData.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/neu/yelp/main/Main.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="18" column="97" lean-forward="false" selection-start-line="18" selection-start-column="97" selection-end-line="18" selection-end-column="97" />
+              <folding>
+                <element signature="e#27#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransformData.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/neu/yelp/postprocessing/TransformData.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="475">
               <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestCNN.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/neu/yelp/cnn/TestCNN.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="970">
-              <caret line="39" column="32" lean-forward="false" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-              <folding>
-                <element signature="e#27#94#0" expanded="true" />
-                <marker date="1492045209536" expanded="true" signature="387:435" ph="/**...*/" />
-                <marker date="1492045209536" expanded="true" signature="846:851" ph="{...}" />
-                <marker date="1492045209536" expanded="true" signature="947:1586" ph="{...}" />
-                <marker date="1492045209536" expanded="true" signature="1485:1581" ph="/.../" />
-                <marker date="1492045209536" expanded="true" signature="1652:1763" ph="{...}" />
-                <marker date="1492045209536" expanded="true" signature="1767:2031" ph="/.../" />
-                <marker date="1492045209536" expanded="true" signature="2109:2311" ph="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -60,6 +53,13 @@
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/scala/com/neu/yelp/main/Main.scala" />
+      </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
@@ -91,126 +91,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="YelpImageClassification" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="YelpImageClassification" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="YelpImageClassification" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yelp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="preprocessing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="YelpImageClassification" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="YelpImageClassification" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yelp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="postprocessing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="YelpImageClassification" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="YelpImageClassification" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yelp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="YelpImageClassification" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="YelpImageClassification" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yelp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cnn" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -387,7 +267,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23752712" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21041214" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -409,7 +289,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/com/neu/yelp/main/Main.scala</url>
-          <line>38</line>
+          <line>39</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
@@ -427,7 +307,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/com/neu/yelp/main/Main.scala</url>
-          <line>33</line>
+          <line>34</line>
           <properties />
           <option name="timeStamp" value="44" />
         </line-breakpoint>
@@ -495,7 +375,7 @@
         <state relative-caret-position="250">
           <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="14" selection-end-column="3" />
           <folding>
-            <element signature="e#37#75#0" expanded="true" />
+            <element signature="e#37#75#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -513,12 +393,12 @@
         <state relative-caret-position="18125">
           <caret line="725" column="26" lean-forward="false" selection-start-line="725" selection-start-column="26" selection-end-line="725" selection-end-column="26" />
           <folding>
-            <element signature="e#25574#25575#0" expanded="true" />
-            <element signature="e#25641#25642#0" expanded="true" />
-            <element signature="e#58354#58355#0" expanded="true" />
-            <element signature="e#58419#58420#0" expanded="true" />
-            <element signature="e#60071#60072#0" expanded="true" />
-            <element signature="e#60126#60127#0" expanded="true" />
+            <element signature="e#25574#25575#0" expanded="false" />
+            <element signature="e#25641#25642#0" expanded="false" />
+            <element signature="e#58354#58355#0" expanded="false" />
+            <element signature="e#58419#58420#0" expanded="false" />
+            <element signature="e#60071#60072#0" expanded="false" />
+            <element signature="e#60126#60127#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -587,7 +467,7 @@
         <state relative-caret-position="300">
           <caret line="12" column="116" lean-forward="false" selection-start-line="12" selection-start-column="104" selection-end-line="12" selection-end-column="116" />
           <folding>
-            <element signature="e#37#75#0" expanded="true" />
+            <element signature="e#37#75#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -615,12 +495,12 @@
         <state relative-caret-position="38250">
           <caret line="1530" column="20" lean-forward="false" selection-start-line="1530" selection-start-column="20" selection-end-line="1530" selection-end-column="20" />
           <folding>
-            <element signature="e#25574#25575#0" expanded="true" />
-            <element signature="e#25641#25642#0" expanded="true" />
-            <element signature="e#58354#58355#0" expanded="true" />
-            <element signature="e#58419#58420#0" expanded="true" />
-            <element signature="e#60071#60072#0" expanded="true" />
-            <element signature="e#60126#60127#0" expanded="true" />
+            <element signature="e#25574#25575#0" expanded="false" />
+            <element signature="e#25641#25642#0" expanded="false" />
+            <element signature="e#58354#58355#0" expanded="false" />
+            <element signature="e#58419#58420#0" expanded="false" />
+            <element signature="e#60071#60072#0" expanded="false" />
+            <element signature="e#60126#60127#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -698,12 +578,12 @@
         <state relative-caret-position="38275">
           <caret line="1531" column="44" lean-forward="false" selection-start-line="1531" selection-start-column="44" selection-end-line="1531" selection-end-column="44" />
           <folding>
-            <element signature="e#25574#25575#0" expanded="true" />
-            <element signature="e#25641#25642#0" expanded="true" />
-            <element signature="e#58354#58355#0" expanded="true" />
-            <element signature="e#58419#58420#0" expanded="true" />
-            <element signature="e#60071#60072#0" expanded="true" />
-            <element signature="e#60126#60127#0" expanded="true" />
+            <element signature="e#25574#25575#0" expanded="false" />
+            <element signature="e#25641#25642#0" expanded="false" />
+            <element signature="e#58354#58355#0" expanded="false" />
+            <element signature="e#58419#58420#0" expanded="false" />
+            <element signature="e#60071#60072#0" expanded="false" />
+            <element signature="e#60126#60127#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -794,12 +674,12 @@
         <state relative-caret-position="15925">
           <caret line="725" column="26" lean-forward="false" selection-start-line="725" selection-start-column="26" selection-end-line="725" selection-end-column="26" />
           <folding>
-            <element signature="e#25574#25575#0" expanded="true" />
-            <element signature="e#25641#25642#0" expanded="true" />
-            <element signature="e#58354#58355#0" expanded="true" />
-            <element signature="e#58419#58420#0" expanded="true" />
-            <element signature="e#60071#60072#0" expanded="true" />
-            <element signature="e#60126#60127#0" expanded="true" />
+            <element signature="e#25574#25575#0" expanded="false" />
+            <element signature="e#25641#25642#0" expanded="false" />
+            <element signature="e#58354#58355#0" expanded="false" />
+            <element signature="e#58419#58420#0" expanded="false" />
+            <element signature="e#60071#60072#0" expanded="false" />
+            <element signature="e#60126#60127#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -824,7 +704,7 @@
         <state relative-caret-position="250">
           <caret line="10" column="2" lean-forward="false" selection-start-line="10" selection-start-column="2" selection-end-line="14" selection-end-column="3" />
           <folding>
-            <element signature="e#37#75#0" expanded="true" />
+            <element signature="e#37#75#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -861,16 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/neu/yelp/main/Main.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="20" />
-          <folding>
-            <element signature="e#27#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/neu/yelp/cnn/TestCNN.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="970">
@@ -893,6 +763,16 @@
         <state relative-caret-position="475">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/neu/yelp/main/Main.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="18" column="97" lean-forward="false" selection-start-line="18" selection-start-column="97" selection-end-line="18" selection-end-column="97" />
+          <folding>
+            <element signature="e#27#46#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
