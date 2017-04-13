@@ -15,7 +15,7 @@ object Main{
 
   def main(args: Array[String]): Unit = {
 
-    val biz2LabelMap = Csv2Map.bizToLabel2Map("data\\filtered_train.csv")
+    /*val biz2LabelMap = Csv2Map.bizToLabel2Map("data\\filtered_train.csv")
     val image2BizMap = Csv2Map.photoToBizId2Map("data\\train_photo_to_biz_ids.csv", biz2LabelMap.keySet.toList)
 
     // for biz_id 1000, 54 image ids
@@ -28,7 +28,7 @@ object Main{
 
     val transformedData = new TransformData(img2DataMap,image2BizMap,biz2LabelMap,"train")
 
-    trainModel(transformedData, bizLabel = 1, saveNN = "results\\models_1")
+    trainModel(transformedData, bizLabel = 1, saveNN = "results\\models_1")*/
 
 
     // Pre-processing for test data

@@ -31,13 +31,13 @@ object TestCNN {
 
   def makePredictionOnTestDataInBatches(transformData:TransformData,modelNumber: Int): Unit ={
 
-    val ds : DataSet = makeTestDataset(transformData)
+    val ds : DataSet = makeDataSet(transformData,modelNumber)
     val dsiterTest = new ListDataSetIterator( ds.asList() , 128)
-    val epochitTest : MultipleEpochsIterator = new MultipleEpochsIterator(5, dsiterTest)
+    //val epochitTest : MultipleEpochsIterator = new MultipleEpochsIterator(5, dsiterTest)
     val modelTest = loadCNN("results\\models_%1$s.json".format(modelNumber),"results\\models_%1$s.bin".format(modelNumber))
 
-    while(epochitTest.hasNext) {
-      val testDS = epochitTest.next(128)
+    while(dsiterTest.hasNext) {
+      val testDS = dsiterTest.next(128)
       val predictionTest: INDArray = modelTest.output(testDS.getFeatureMatrix)
       println(predictionTest)
     }
@@ -54,11 +54,17 @@ object TestCNN {
     transformData.getImgVectors.toNDArray
   }
 
-  def makeTestDataset(transformData: TransformData): DataSet ={
+  /*def makeTestDataset(transformData: TransformData): DataSet ={
     val ds: DataSet = new DataSet(transformData.getImgVectors.toNDArray, null)
    // ds.addFeatureVector(transformData.getImgVectors.toNDArray)
     ds
     //transformData.getImgVectors.toNDArray
+  }*/
+
+  def makeDataSet(transformedData: TransformData, bizLabel: Int): DataSet = {
+    val alignedXData = transformedData.getImgVectors.toNDArray
+    val alignedLabs = transformedData.getBizLabels.map(x => Vector(0, bizLabel)).toNDArray
+    new DataSet(alignedXData, alignedLabs)
   }
 
 
