@@ -23,14 +23,11 @@ class TransformData(img2DataMap:Map[Int,Vector[Int]],image2BizMap:Map[Int,String
     for{
       (pid,bid,data) <- bizImageIds
     }yield {
-
       var labels = List[Int]()
-      if(mode != "test"){
-        labels = if(biz2LabelMap.keySet.contains(bid)) biz2LabelMap.get(bid).get else List[Int]()
+      if(mode != "predict" && biz2LabelMap.keySet.contains(bid) ){
+        labels = biz2LabelMap.get(bid).get
       }
       (pid,bid,data,labels)
-
-
     }
   }
 
@@ -40,5 +37,7 @@ class TransformData(img2DataMap:Map[Int,Vector[Int]],image2BizMap:Map[Int,String
   def getBizIds = data.map(_._2)
   def getImgVectors = data.map(_._3)
   def getBizLabels = data.map(_._4)
+
+
 
 }

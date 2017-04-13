@@ -166,14 +166,13 @@ object TrainCNN {
 
     val endtime = System.currentTimeMillis()
     //log.info("End time: " + java.util.Calendar.getInstance().getTime())
-    println("End time: " + java.util.Calendar.getInstance().getTime())
+    println("End Time: " + java.util.Calendar.getInstance().getTime())
     //log.info("computation time: " + (endtime-begintime)/1000.0 + " seconds")
-    println("computation time: " + (endtime-begintime)/1000.0 + " seconds")
-    //log.info("Write results....")
-    println("Write results....")
+    println("Computation Time: " + (endtime-begintime)/1000.0 + " seconds")
 
     if(!saveNN.isEmpty) {
       // model config
+      println("Saving CNN model...")
       FileUtils.write(new File(saveNN + ".json"), model.getLayerWiseConfigurations().toJson())
 
       // model parameters
