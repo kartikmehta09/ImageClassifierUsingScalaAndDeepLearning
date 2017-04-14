@@ -7,6 +7,7 @@ import org.nd4s.Implicits._
 import com.neu.yelp.cnn.LoadSaveCNN.loadCNN
 import org.deeplearning4j.datasets.iterator.MultipleEpochsIterator
 import org.deeplearning4j.datasets.iterator.impl.ListDataSetIterator
+import org.deeplearning4j.nn.multilayer.MultiLayerNetwork
 import org.nd4j.linalg.dataset.DataSet
 
 /**
@@ -19,9 +20,16 @@ object PredictCNN {
      * @param transformData
     * @param modelNumber
     */
-  def doPredictionForLabel(transformData:TransformData, unpredictedBizIds: List[String], modelNumber: Int): List[(String, Int)] ={
+  def doPredictionForLabel(transformData:TransformData, unpredictedBizIds: List[String], modelNumber: Int, model: MultiLayerNetwork ): List[(String, Int)] ={
 
-    val cnnModel = loadCNN("..\\..\\Output_Models\\models_%1$s.json".format(modelNumber),"..\\..\\Output_Models\\models_%1$s.bin".format(modelNumber))
+    //generate the modelPath
+    val modelPath = "..\\..\\Output_Models\\models_%1$s".format(modelNumber)
+    // load model only if the model is not in the memory
+    val cnnModel =
+      if(model == null)
+        loadCNN(modelPath+".json", modelPath+".bin")
+      else model
+
     var predictionResults: List[(String, Int)] =  List[(String, Int)]()
 
     for( bid <- unpredictedBizIds){
@@ -40,10 +48,11 @@ object PredictCNN {
         println("The running average is ==" +runningAverage)
       }
 
-      // avg ~ 50%
+      // If 50% of the results predict true for the label, then the business will have that label
       val avg_true = runningAverage / listNDDS.size();
       if(avg_true >= 0.5)
-        predictionResults.::((bid, modelNumber))
+        predictionResults = predictionResults.::((bid, modelNumber))
+        println(predictionResults)
     }
 
     predictionResults

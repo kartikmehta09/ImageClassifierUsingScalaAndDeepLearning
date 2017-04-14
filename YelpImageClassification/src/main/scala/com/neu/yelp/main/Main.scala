@@ -32,7 +32,7 @@ object Main{
     val transformedData = new TransformData(img2DataMap,image2BizMap,biz2LabelMap,"train_test")
 
     // train the model for each business label on the transformed data and save the model under results folder
-    trainModel(transformedData, bizLabel = 1, saveNN = "..\\..\\Output_Models\\models_1")
+    val cnnModel1= trainModel(transformedData, bizLabel = 1, saveNN = "..\\..\\Output_Models\\models_1")
 /*
     trainModel(transformedData, bizLabel = 2, saveNN = "..\\..\\Output_Models\\models_2")
     trainModel(transformedData, bizLabel = 3, saveNN = "..\\..\\Output_Models\\models_3")
@@ -54,14 +54,14 @@ object Main{
     val transformedDataTest = new TransformData(unpredictedImg2DataMap,unpredictedImg2BizIdsMap, null, "predict")
     // Make predictions for this transformed test for each business label
     // Run each label model to predict if the label is valid for the business id
-    val predictLabel1ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1)
+    val predictLabel1ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, cnnModel1)
 
 /*    val predictLabel2ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 2)
     val predictLabel3ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 3)
     val predictLabel4ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 4)
     val predictLabel5ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 5)*/
 
-    // If 50% of the results predict true for the label, then the business will have that label
+   
     // Analyse the predicted data and mark the label for the business
 
 

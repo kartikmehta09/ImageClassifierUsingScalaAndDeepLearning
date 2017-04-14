@@ -36,7 +36,7 @@ import scala.collection.JavaConverters._
   */
 object TrainCNN {
 
-  def trainModel(transformedData: TransformData, bizLabel:Int = 1, saveNN:String= ""): Unit ={
+  def trainModel(transformedData: TransformData, bizLabel:Int = 1, saveNN:String= ""): MultiLayerNetwork ={
     // convert dataset to ND4J dataset
     val ndds = makeDataSet(transformedData, bizLabel)
 
@@ -180,8 +180,8 @@ object TrainCNN {
       Nd4j.write(model.params(), dos)
     }
 
-    //log.info("****************Example finished********************")
-    println("****************Example finished********************")
+    model
+
 
   }
 }
