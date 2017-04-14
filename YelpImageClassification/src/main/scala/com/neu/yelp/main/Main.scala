@@ -19,7 +19,7 @@ object Main{
     /*** TRAINING & TESTING ***/
 
    // read the business ids and their lables and generate the a map of business ids and list of labels
-    /*val biz2LabelMap = Csv2Map.bizToLabel2Map("..\\..\\Input_Datasets\\filtered_train_biz_ids.csv")
+    val biz2LabelMap = Csv2Map.bizToLabel2Map("..\\..\\Input_Datasets\\filtered_train_biz_ids.csv")
     println("biz2LabelMap : " + biz2LabelMap.size)
     // read the image ids and their business ids and generate the a map of image ids and business ids
     val image2BizMap = Csv2Map.photoToBizId2Map("..\\..\\Input_Datasets\\train_photo_to_biz_ids.csv", biz2LabelMap.keySet.toList)
@@ -32,7 +32,7 @@ object Main{
     val transformedData = new TransformData(img2DataMap,image2BizMap,biz2LabelMap,"train_test")
 
     // train the model for each business label on the transformed data and save the model under results folder
-    trainModel(transformedData, bizLabel = 1, saveNN = "..\\..\\Output_Models\\models_1")*/
+    trainModel(transformedData, bizLabel = 1, saveNN = "..\\..\\Output_Models\\models_1")
 /*
     trainModel(transformedData, bizLabel = 2, saveNN = "..\\..\\Output_Models\\models_2")
     trainModel(transformedData, bizLabel = 3, saveNN = "..\\..\\Output_Models\\models_3")
