@@ -23,7 +23,7 @@ object PredictCNN {
   def doPredictionForLabel(transformData:TransformData, unpredictedBizIds: List[String], modelNumber: Int, model: MultiLayerNetwork ): List[(String, Int)] ={
 
     //generate the modelPath
-    val modelPath = "..\\..\\Output_Models\\models_%1$s".format(modelNumber)
+    val modelPath = "..\\Output_Models\\models_%1$s".format(modelNumber)
     // load model only if the model is not in the memory
     val cnnModel =
       if(model == null)
