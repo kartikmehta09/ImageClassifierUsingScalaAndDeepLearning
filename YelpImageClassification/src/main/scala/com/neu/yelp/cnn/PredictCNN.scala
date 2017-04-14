@@ -21,10 +21,11 @@ object PredictCNN {
     */
   def doPredictionForLabel(transformData:TransformData, unpredictedBizIds: List[String], modelNumber: Int): List[(String, Int)] ={
 
-    val cnnModel = loadCNN("results\\models_%1$s.json".format(modelNumber),"results\\models_%1$s.bin".format(modelNumber))
+    val cnnModel = loadCNN("..\\..\\Output_Models\\models_%1$s.json".format(modelNumber),"..\\..\\Output_Models\\models_%1$s.bin".format(modelNumber))
     var predictionResults: List[(String, Int)] = null
 
     for( bid <- unpredictedBizIds){
+      print("----prediction for business----  " + bid)
       val ndds : DataSet = makeDataSet(transformData, bid, modelNumber)
       // we want to load the unpredicted data in batches so as to avoid memory overflow exception
       // 128 is the batch size

@@ -63,7 +63,7 @@ object TrainCNN {
     val splitTrainNum = math.ceil(ndds.numExamples*0.8).toInt // 80/20 training/test split
     val seed = 123
     val listenerFreq = 1
-    val nepochs = 5
+    val nepochs = 8
     val nbatch = 128 // recommended between 16 and 128
 
     //val nOutPar = 500 // default was 1000.  # of output nodes in first layer
@@ -95,9 +95,9 @@ object TrainCNN {
       .seed(seed)
       .iterations(iterations) // Training iterations as above
       .regularization(true)
-      //.miniBatch(true)
+      .miniBatch(true)
       .l2(0.0005)
-      .learningRate(0.01)
+      .learningRate(0.006)
       .weightInit(WeightInit.XAVIER)
       .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
       .updater(Updater.NESTEROVS)
