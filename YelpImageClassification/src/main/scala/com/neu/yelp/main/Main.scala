@@ -34,10 +34,10 @@ object Main{
     // train the model for each business label on the transformed data and save the model under results folder
     val cnnModel1= trainModel(transformedData, bizLabel = 1, saveNN = "..\\Output_Models\\models_1")
 /*
-    trainModel(transformedData, bizLabel = 2, saveNN = "..\\..\\Output_Models\\models_2")
-    trainModel(transformedData, bizLabel = 3, saveNN = "..\\..\\Output_Models\\models_3")
-    trainModel(transformedData, bizLabel = 4, saveNN = "..\\..\\Output_Models\\models_4")
-    trainModel(transformedData, bizLabel = 5, saveNN = "..\\..\\Output_Models\\models_5")
+    val cnnModel0= trainModel(transformedData, bizLabel = 0, saveNN = "..\\Output_Models\\models_0")
+    val cnnModel2= trainModel(transformedData, bizLabel = 2, saveNN = "..\\Output_Models\\models_2")
+    val cnnModel3= trainModel(transformedData, bizLabel = 3, saveNN = "..\\Output_Models\\models_3")
+    val cnnModel4= trainModel(transformedData, bizLabel = 4, saveNN = "..\\Output_Models\\models_4")
 */
 
     /*** PREDICTION ***/
@@ -54,17 +54,23 @@ object Main{
     val transformedDataTest = new TransformData(unpredictedImg2DataMap,unpredictedImg2BizIdsMap, null, "predict")
     // Make predictions for this transformed test for each business label
     // Run each label model to predict if the label is valid for the business id
-    val predictLabel1ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, cnnModel1)
+    var predictLabel1ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, cnnModel1)
 
-/*    val predictLabel2ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 2)
-    val predictLabel3ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 3)
-    val predictLabel4ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 4)
-    val predictLabel5ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 5)*/
+
+   /* predictLabel1ForBusinesses = predictLabel1ForBusinesses :: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, cnnModel0)
+    predictLabel1ForBusinesses = predictLabel1ForBusinesses :: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 2, cnnModel2)
+    predictLabel1ForBusinesses = predictLabel1ForBusinesses :: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 3, cnnModel3)
+    predictLabel1ForBusinesses = predictLabel1ForBusinesses :: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 4, cnnModel4)
+   */
 
    
     // Analyse the predicted data and mark the label for the business
+    val predictedMap: Map[String,List[Int]] = predictLabel1ForBusinesses.map( s=> (s._1, s._2) )
+      .groupBy(_._1)
+      .mapValues(_.map(_._2))
 
-
+    println("Final Predictions :")
+    predictedMap.foreach(println)
 
 
 

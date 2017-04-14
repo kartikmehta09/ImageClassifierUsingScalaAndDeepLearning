@@ -7,7 +7,7 @@
 		revision="1.0"
 		conf="compile"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20170412231600"/>
+		date="20170414014331"/>
 	<dependencies>
 		<module organisation="com.sksamuel.scrimage" name="scrimage-io-extra_2.11">
 			<revision name="2.1.0" status="release" pubdate="20150825174715" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/sksamuel/scrimage" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="141">
