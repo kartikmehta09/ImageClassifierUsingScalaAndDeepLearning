@@ -22,7 +22,7 @@ object PredictCNN {
   def doPredictionForLabel(transformData:TransformData, unpredictedBizIds: List[String], modelNumber: Int): List[(String, Int)] ={
 
     val cnnModel = loadCNN("..\\..\\Output_Models\\models_%1$s.json".format(modelNumber),"..\\..\\Output_Models\\models_%1$s.bin".format(modelNumber))
-    var predictionResults: List[(String, Int)] = null
+    var predictionResults: List[(String, Int)] =  List[(String, Int)]()
 
     for( bid <- unpredictedBizIds){
       println("----prediction for business----  " + bid)
