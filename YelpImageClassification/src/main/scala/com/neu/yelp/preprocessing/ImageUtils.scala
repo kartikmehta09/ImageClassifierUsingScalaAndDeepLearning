@@ -55,6 +55,6 @@ object ImageUtils {
 
     fileList.map(file=>patt_get_jpg_name.findAllIn(file.getName).mkString.toInt->{
       image2Vector(resizeImg(makeSquare(ImageIO.read(file)),128,128))
-    }).toMap.slice(0,50)
+    }).toMap
   }
 }

@@ -25,7 +25,7 @@ object PredictCNN {
     var predictionResults: List[(String, Int)] = null
 
     for( bid <- unpredictedBizIds){
-      print("----prediction for business----  " + bid)
+      println("----prediction for business----  " + bid)
       val ndds : DataSet = makeDataSet(transformData, bid, modelNumber)
       // we want to load the unpredicted data in batches so as to avoid memory overflow exception
       // 128 is the batch size
@@ -35,12 +35,14 @@ object PredictCNN {
       while(nddsIterator.hasNext) {
         val unpredicted_ndds = nddsIterator.next()
         val predictionTest: INDArray = cnnModel.output(unpredicted_ndds.getFeatureMatrix)
-        runningAverage += predictionTest.sumNumber().intValue() - (predictionTest.length * modelNumber)
+        println("The predicted sumber value--" +predictionTest.sumNumber().intValue())
+        runningAverage += predictionTest.sumNumber().intValue() - (predictionTest.rows() * modelNumber)
+        println("The running average is ==" +runningAverage)
       }
 
       // avg ~ 50%
       val avg_true = runningAverage / listNDDS.size();
-      if(avg_true >= 50)
+      if(avg_true >= 0.5)
         predictionResults.::((bid, modelNumber))
     }
 
@@ -51,14 +53,14 @@ object PredictCNN {
     * This function will generate ND4J Dataset from the transform data
     * The Image Vectors are the features
     * The labels are boolean false by default
-    * @param transformedData
+    * @param td
     * @param bizLabel
     * @return
     */
-  def makeDataSet(transformedData: TransformData, bizId: String, bizLabel: Int): DataSet = {
-    val filteredTransformData = transformedData.data.filter(_._2.equals(bizId))
+  def makeDataSet(td: TransformData, bizId: String, bizLabel: Int): DataSet = {
+    val filteredTransformData = td.data.filter(_._2.equals(bizId))
     val alignedXData = filteredTransformData.map(_._3).toNDArray
-    val alignedLabs = filteredTransformData.map(x => Vector(0, bizLabel)).toNDArray
+    val alignedLabs = filteredTransformData.map(x => Vector(0, 1)).toNDArray
     new DataSet(alignedXData, alignedLabs)
   }
 
