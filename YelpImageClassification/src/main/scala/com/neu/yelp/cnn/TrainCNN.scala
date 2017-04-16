@@ -36,12 +36,12 @@ import scala.collection.JavaConverters._
   */
 object TrainCNN {
 
-  def trainModel(transformedData: TransformData, bizLabel:Int = 1, saveNN:String= ""): MultiLayerNetwork ={
+  def trainModel(transformedData: TransformData, bizLabel:Int = 1, saveNN:String= "",uIServer: UIServer): MultiLayerNetwork ={
     // convert dataset to ND4J dataset
     val ndds = makeDataSet(transformedData, bizLabel)
 
     //start the UI
-    val uIServer = UIServer.getInstance()
+   // val uIServer = UIServer.getInstance()
     val statsStorage:StatsStorage = new InMemoryStatsStorage()
     uIServer.attach(statsStorage)
 

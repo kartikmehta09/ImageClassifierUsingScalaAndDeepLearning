@@ -7,6 +7,9 @@ import com.neu.yelp.preprocessing.{Csv2Map, ImageUtils}
 import com.neu.yelp.cnn.TrainCNN.trainModel
 import com.neu.yelp.postprocessing.TransformData
 import com.neu.yelp.cnn.PredictCNN.doPredictionForLabel
+import org.deeplearning4j.api.storage.StatsStorage
+import org.deeplearning4j.ui.api.UIServer
+import org.deeplearning4j.ui.storage.InMemoryStatsStorage
 
 /**
   * Created by Pranay on 3/23/2017.
@@ -31,14 +34,14 @@ object Main{
     // transform data is our input dataset, i.e. [image_id, business_id, image_vector_data, business_label]
     val transformedData = new TransformData(img2DataMap,image2BizMap,biz2LabelMap,"train_test")
 
+    val uIServer = UIServer.getInstance()
+
     // train the model for each business label on the transformed data and save the model under results folder
-    val cnnModel1= trainModel(transformedData, bizLabel = 1, saveNN = "..\\Output_Models\\models_1")
-/*
-    val cnnModel0= trainModel(transformedData, bizLabel = 0, saveNN = "..\\Output_Models\\models_0")
-    val cnnModel2= trainModel(transformedData, bizLabel = 2, saveNN = "..\\Output_Models\\models_2")
-    val cnnModel3= trainModel(transformedData, bizLabel = 3, saveNN = "..\\Output_Models\\models_3")
-    val cnnModel4= trainModel(transformedData, bizLabel = 4, saveNN = "..\\Output_Models\\models_4")
-*/
+    val cnnModel1= trainModel(transformedData, bizLabel = 1, saveNN = "..\\Output_Models\\models_1",uIServer)
+    val cnnModel0= trainModel(transformedData, bizLabel = 0, saveNN = "..\\Output_Models\\models_0",uIServer)
+    val cnnModel2= trainModel(transformedData, bizLabel = 2, saveNN = "..\\Output_Models\\models_2",uIServer)
+    val cnnModel3= trainModel(transformedData, bizLabel = 3, saveNN = "..\\Output_Models\\models_3",uIServer)
+    val cnnModel4= trainModel(transformedData, bizLabel = 4, saveNN = "..\\Output_Models\\models_4",uIServer)
 
     /*** PREDICTION ***/
 
@@ -55,13 +58,11 @@ object Main{
     // Make predictions for this transformed test for each business label
     // Run each label model to predict if the label is valid for the business id
     var predictLabel1ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, cnnModel1)
+    predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, cnnModel0)
+    predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 2, cnnModel2)
+    predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 3, cnnModel3)
+    predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 4, cnnModel4)
 
-
-   /* predictLabel1ForBusinesses = predictLabel1ForBusinesses :: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, cnnModel0)
-    predictLabel1ForBusinesses = predictLabel1ForBusinesses :: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 2, cnnModel2)
-    predictLabel1ForBusinesses = predictLabel1ForBusinesses :: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 3, cnnModel3)
-    predictLabel1ForBusinesses = predictLabel1ForBusinesses :: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 4, cnnModel4)
-   */
 
    
     // Analyse the predicted data and mark the label for the business
