@@ -12,9 +12,9 @@ import org.nd4j.linalg.dataset.api.iterator.DataSetIterator
   */
 object Scoring {
 
-  /*def scoreModel(model: MultiLayerNetwork, ds: INDArray) : INDArray = {
+  def scoreModel(model: MultiLayerNetwork, ds: INDArray) : INDArray = {
     model.output(ds)
-  }*/
+  }
 
   def scoreModel(model: MultiLayerNetwork, ds: DataSetIterator) : INDArray = {
     model.output(ds)
@@ -22,17 +22,26 @@ object Scoring {
   
   /** Take model predictions from scoreModel and merge with transformedData*/
   
-  /*def aggImgScores2Biz(scores: INDArray, transformData: TransformData ) : List[(String, Double)] = {
-    assert(scores.size(0) == transformData.data.length, "transformedData and scores length are different.  They must be equal")
-    def getRowIndices4Biz(mylist: List[String], mybiz: String): List[Int] = mylist.zipWithIndex.filter(x => x._1 == mybiz).map(_._2)
+  def aggImgScores2Biz(scores: INDArray) : Double = {
+
+    var sum=0.0
+    for(row <- 0 until  scores.rows()){
+      sum+=scores.getRow(row).getColumn(0).toString.toDouble
+    }
+    sum/scores.rows()
+
+    /*
+    assert(scores.size(0) == ds.length, "transformedData and scores length are different.  They must be equal")
+    //def getRowIndices4Biz(mylist: List[String], mybiz: String): List[Int] = mylist.zipWithIndex.filter(x => x._1 == mybiz).map(_._2)
+
     def mean(xs: List[Double]) = xs.sum / xs.size
 
-    transformData.getBizIds.distinct.map(x => (x, {
+    ds.map(x => (x, {
       val irows = getRowIndices4Biz(transformData.getBizIds, x)
       val ret = for(row <- irows) yield scores.getRow(row).getColumn(1).toString.toDouble
       mean(ret)
-    }))
+    }))*/
     
-  }*/
+  }
   
 }

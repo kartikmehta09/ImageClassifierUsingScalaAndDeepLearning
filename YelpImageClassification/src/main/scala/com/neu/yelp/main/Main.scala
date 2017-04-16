@@ -17,7 +17,7 @@ object Main{
   def main(args: Array[String]): Unit = {
 
     /*** TRAINING & TESTING ***/
-    println(" 1) Starting the training and testing phase....")
+   /* println(" 1) Starting the training and testing phase....")
 
     // read the business ids and their lables and generate the a map of business ids and list of labels
     val biz2LabelMap = bizToLabel2Map("..\\Input_Datasets\\filtered_train_biz_ids.csv")
@@ -43,9 +43,10 @@ object Main{
 
     // train the model for each business label on the transformed data and save the model under results folder
     val cnnModel1= trainModel(transformedData, bizLabel = 1, "..\\Output_Models\\models_1", uIServer)
-    /*val cnnModel0= trainModel(transformedData, bizLabel = 0, "..\\Output_Models\\models_0", uIServer)
-    val cnnModel2= trainModel(transformedData, bizLabel = 2, "..\\Output_Models\\models_2", uIServer)
-    val cnnModel3= trainModel(transformedData, bizLabel = 3, "..\\Output_Models\\models_3", uIServer)
+    val cnnModel0= trainModel(transformedData, bizLabel = 0, "..\\Output_Models\\models_0", uIServer)
+   */
+    /*val cnnModel2= trainModel(transformedData, bizLabel = 2, "..\\Output_Models\\models_2", uIServer)*/
+    /*val cnnModel3= trainModel(transformedData, bizLabel = 3, "..\\Output_Models\\models_3", uIServer)
     val cnnModel4= trainModel(transformedData, bizLabel = 4, "..\\Output_Models\\models_4", uIServer)
 */
 
@@ -73,9 +74,9 @@ object Main{
     // Make predictions for this transformed test for each business label
     // Run each label model to predict if the label is valid for the business id
     println("Starting the prediction using each label's model....")
-    var predictLabel1ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, cnnModel1)
-    /*predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, cnnModel0)
-    predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 2, cnnModel2)
+    var predictLabel1ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, null)
+    predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, null)
+    /*predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 2, null)
     predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 3, cnnModel3)
     predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 4, cnnModel4)*/
 

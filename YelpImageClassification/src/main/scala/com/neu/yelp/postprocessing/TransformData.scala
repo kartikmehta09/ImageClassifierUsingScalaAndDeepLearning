@@ -33,7 +33,7 @@ class TransformData(img2DataMap:Map[Int,Vector[Int]],image2BizMap:Map[Int,String
     }
   }
 
-  lazy val data = transform(img2DataMap,image2BizMap,biz2LabelMap,mode);
+  lazy val data = transform(img2DataMap,image2BizMap,biz2LabelMap,mode)
 
   def getImgIds = data.map(_._1)
   def getBizIds = data.map(_._2)
@@ -43,3 +43,4 @@ class TransformData(img2DataMap:Map[Int,Vector[Int]],image2BizMap:Map[Int,String
 
 
 }
+
