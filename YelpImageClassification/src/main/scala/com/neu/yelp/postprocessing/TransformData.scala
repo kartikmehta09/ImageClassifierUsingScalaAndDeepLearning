@@ -1,7 +1,8 @@
 package com.neu.yelp.postprocessing
 
 /**
-  * Created by Pranay on 3/27/2017.
+  * Created by Pranay on 3/27/2017
+  * Modified by Kunal on 4/3/2017
   */
 class TransformData(img2DataMap:Map[Int,Vector[Int]],image2BizMap:Map[Int,String],biz2LabelMap:Map[String,List[Int]],mode: String) {
 
@@ -19,6 +20,7 @@ class TransformData(img2DataMap:Map[Int,Vector[Int]],image2BizMap:Map[Int,String
 
 
   def transform(img2DataMap:Map[Int,Vector[Int]],image2BizMap:Map[Int,String],biz2LabelMap:Map[String,List[Int]], mode: String): List[(Int,String,Vector[Int],List[Int])] ={
+    println("Aligning the data....")
     val bizImageIds = transformBizImageIds(img2DataMap,image2BizMap)
     for{
       (pid,bid,data) <- bizImageIds

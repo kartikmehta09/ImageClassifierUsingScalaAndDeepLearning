@@ -11,13 +11,13 @@ import org.deeplearning4j.nn.multilayer.MultiLayerNetwork
 import org.nd4j.linalg.dataset.DataSet
 
 /**
-  * Created by ManasiLaddha on 4/6/2017.
+  * Created by ManasiLaddha on 4/6/2017
   * Modified by Kunal on 4/11/2017
   */
 object PredictCNN {
   /**
     *
-     * @param transformData
+    * @param transformData
     * @param modelNumber
     */
   def doPredictionForLabel(transformData:TransformData, unpredictedBizIds: List[String], modelNumber: Int, model: MultiLayerNetwork ): List[(String, Int)] ={
@@ -26,8 +26,10 @@ object PredictCNN {
     val modelPath = "..\\Output_Models\\models_%1$s".format(modelNumber)
     // load model only if the model is not in the memory
     val cnnModel =
-      if(model == null)
-        loadCNN(modelPath+".json", modelPath+".bin")
+      if(model == null) {
+        println("CNN Model need to be loaded..")
+        loadCNN(modelPath + ".json", modelPath + ".bin")
+      }
       else model
 
     var predictionResults: List[(String, Int)] =  List[(String, Int)]()

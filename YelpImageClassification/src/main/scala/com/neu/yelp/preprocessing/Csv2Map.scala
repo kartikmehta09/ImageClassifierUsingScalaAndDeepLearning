@@ -3,7 +3,9 @@ package com.neu.yelp.preprocessing
 import scala.io.Source
 
 /**
-  * Created by Pranay on 3/24/2017.
+  * Created by Pranay on 3/24/2017
+  * Modified by Kunal on 3/25/2017
+  *
   */
 object Csv2Map {
 
@@ -15,6 +17,7 @@ object Csv2Map {
   }
 
   def photoToBizId2Map(csvLocation: String , bizIds: List[String]) : Map[Int, String] = {
+    println("Generating ImageId to BizId Map from : " + csvLocation )
     val csv = readcsv(csvLocation)
     csv.drop(1)
       .filter(x=> bizIds.contains(x(1).split(" ").head))
@@ -23,6 +26,7 @@ object Csv2Map {
   }
 
   def bizToLabel2Map(csvLocation: String): Map[String, List[Int]] = {
+    println("Generating BizId to Label Map from : " + csvLocation )
     val csv = readcsv(csvLocation)
     csv.drop(1).map(x => (x(0), (x(1).split(" ").map(_.toInt)).toList)).toMap
   }
@@ -31,4 +35,5 @@ object Csv2Map {
     val csv = readcsv(csvLocation)
     csv.drop(1).map(x => (x(0))).toList
   }
+
 }
