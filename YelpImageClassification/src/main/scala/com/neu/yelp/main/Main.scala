@@ -79,7 +79,7 @@ object Main{
     predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 3, cnnModel3)
     predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 4, cnnModel4)*/
 
-    println("Analyzing the predictions.....")
+    println(" 3) Analyzing the Predictions Phase .....")
     // Analyse the predicted data and mark the label for the business
     val predictedMap: Map[String,List[Int]] = predictLabel1ForBusinesses.map( s=> (s._1, s._2) )
       .groupBy(_._1)
@@ -88,7 +88,7 @@ object Main{
     println("Final Predictions :")
     predictedMap.foreach(println)
 
-
+    println("Done !!")
 
 
   }

@@ -35,19 +35,20 @@ object PredictCNN {
     var predictionResults: List[(String, Int)] =  List[(String, Int)]()
 
     for( bid <- unpredictedBizIds){
-      println("----prediction for business----  " + bid)
+      println("----Prediction for business----  " + bid)
       val ndds : DataSet = makeDataSet(transformData, bid, modelNumber)
       // we want to load the unpredicted data in batches so as to avoid memory overflow exception
       // 128 is the batch size
       val listNDDS = ndds.asList()
+      println("Dataset size : " + listNDDS.size())
       val nddsIterator = new ListDataSetIterator( listNDDS , 128)
       var runningAverage = 0
       while(nddsIterator.hasNext) {
         val unpredicted_ndds = nddsIterator.next()
         val predictionTest: INDArray = cnnModel.output(unpredicted_ndds.getFeatureMatrix)
-        println("The predicted sumber value--" +predictionTest.sumNumber().intValue())
+        println("predictionTest.sumNumber : " + predictionTest.sumNumber().intValue())
         runningAverage += predictionTest.sumNumber().intValue() - (predictionTest.rows() * modelNumber)
-        println("The running average is ==" +runningAverage)
+        println("The running average : " +runningAverage)
       }
 
       // If 50% of the results predict true for the label, then the business will have that label
