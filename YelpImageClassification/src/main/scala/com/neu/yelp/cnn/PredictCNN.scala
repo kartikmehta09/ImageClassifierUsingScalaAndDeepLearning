@@ -9,7 +9,9 @@ import org.deeplearning4j.datasets.iterator.MultipleEpochsIterator
 import org.deeplearning4j.datasets.iterator.impl.ListDataSetIterator
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork
 import org.nd4j.linalg.dataset.DataSet
-import com.neu.yelp.cnn.Scoring.{scoreModel, aggImgScores2Biz}
+import com.neu.yelp.cnn.Scoring.{aggImgScores2Biz, scoreModel}
+
+import scala.concurrent.Future
 
 /**
   * Created by ManasiLaddha on 4/6/2017
@@ -21,7 +23,7 @@ object PredictCNN {
     * @param transformData
     * @param modelNumber
     */
-  def doPredictionForLabel(transformData:TransformData, unpredictedBizIds: List[String], modelNumber: Int, model: MultiLayerNetwork ): List[(String, Int)] ={
+  def doPredictionForLabel(transformData:TransformData, unpredictedBizIds: List[String], modelNumber: Int, model: MultiLayerNetwork ): List[(String, Int)]={
 
     //generate the modelPath
     val modelPath = "..\\Output_Models\\models_%1$s".format(modelNumber)

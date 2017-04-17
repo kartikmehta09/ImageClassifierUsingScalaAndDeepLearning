@@ -1,11 +1,15 @@
 package com.neu.yelp.main
 
-import com.neu.yelp.preprocessing.{ImageUtils}
+
+import com.neu.yelp.preprocessing.ImageUtils
 import com.neu.yelp.cnn.TrainCNN.trainModel
 import com.neu.yelp.postprocessing.TransformData
 import com.neu.yelp.cnn.PredictCNN.doPredictionForLabel
 import org.deeplearning4j.ui.api.UIServer
-import com.neu.yelp.preprocessing.Csv2Map.{getUniqueBizIDForTest, photoToBizId2Map, bizToLabel2Map}
+import com.neu.yelp.preprocessing.Csv2Map.{bizToLabel2Map, getUniqueBizIDForTest, photoToBizId2Map}
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
+import scala.util.{Failure, Success}
 
 /**
   * Created by Pranay on 3/23/2017
@@ -41,12 +45,27 @@ object Main{
     println("Starting the training UI on localhost:9090/train ")
     val uIServer = UIServer.getInstance()
 
+
     // train the model for each business label on the transformed data and save the model under results folder
-    val cnnModel1= trainModel(transformedData, bizLabel = 1, "..\\Output_Models\\models_1", uIServer)
-    val cnnModel0= trainModel(transformedData, bizLabel = 0, "..\\Output_Models\\models_0", uIServer)
-    val cnnModel2= trainModel(transformedData, bizLabel = 2, "..\\Output_Models\\models_2", uIServer)
-    val cnnModel3= trainModel(transformedData, bizLabel = 3, "..\\Output_Models\\models_3", uIServer)
-    val cnnModel4= trainModel(transformedData, bizLabel = 4, "..\\Output_Models\\models_4", uIServer)
+    val cnnModel1=  Future{
+      trainModel(transformedData, bizLabel = 1, "..\\Output_Models\\models_1", uIServer)
+    }
+
+    val cnnModel0= Future{
+      trainModel(transformedData, bizLabel = 0, "..\\Output_Models\\models_0", uIServer)
+    }
+    /*val cnnModel2= Future{
+      trainModel(transformedData, bizLabel = 2, "..\\Output_Models\\models_2", uIServer)
+    }
+
+    val cnnModel3= Future {
+      trainModel(transformedData, bizLabel = 3, "..\\Output_Models\\models_3", uIServer)
+    }
+
+    val cnnModel4= Future{
+      trainModel(transformedData, bizLabel = 4, "..\\Output_Models\\models_4", uIServer)
+    }*/
+
 
 
     /*** PREDICTION ***/
@@ -73,22 +92,42 @@ object Main{
     // Make predictions for this transformed test for each business label
     // Run each label model to predict if the label is valid for the business id
     println("Starting the prediction using each label's model....")
-    var predictLabel1ForBusinesses = doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, cnnModel1)
-    predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, cnnModel0)
-    predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 2, cnnModel2)
-    predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 3, cnnModel3)
-    predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 4, cnnModel4)
+
+    var predictLabel1ForBusinesses = List[(String,Int)]()
+
+    val p = Future {
+
+        cnnModel1.onComplete{
+          case Success(model1) => predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, model1)
+          case Failure(e) => e.getMessage()
+        }
+
+        cnnModel0.onComplete{
+          case Success(model0) => predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, model0)
+          case Failure(e) => e.getMessage()
+        }
+
+        predictLabel1ForBusinesses
+    }
+
 
     println(" 3) Analyzing the Predictions Phase .....")
+
     // Analyse the predicted data and mark the label for the business
-    val predictedMap: Map[String,List[Int]] = predictLabel1ForBusinesses.map( s=> (s._1, s._2) )
-      .groupBy(_._1)
-      .mapValues(_.map(_._2))
+    p.onComplete{
+      case Success(predictions) => {
+        val predictedMap: Map[String, List[Int]] = predictions.map(s => (s._1, s._2))
+          .groupBy(_._1)
+          .mapValues(_.map(_._2))
 
-    println("Final Predictions :")
-    predictedMap.foreach(println)
+        println("Final Predictions :")
+        predictedMap.foreach(println)
 
-    println("Done !!")
+        println("Analysis Done !!")
+      }
+      case Failure(e) => println("Failed in analysis")
+
+    }
 
 
   }
