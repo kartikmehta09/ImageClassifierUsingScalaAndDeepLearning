@@ -9,7 +9,6 @@ import org.deeplearning4j.ui.api.UIServer
 import com.neu.yelp.preprocessing.Csv2Map.{bizToLabel2Map, getUniqueBizIDForTest, photoToBizId2Map}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
-import scala.util.{Failure, Success}
 
 /**
   * Created by Pranay on 3/23/2017
@@ -33,7 +32,7 @@ object Main{
 
     // read the image vector data and generate the a map of image ids and image vector data
     // This step involves prepreprocessing of images - 1) Resizing 2) Grayling 3) Pixelating 128 x 128
-    val img2DataMap = ImageUtils.img2Map("..\\..\\Input_Datasets\\train_photos",image2BizMap);
+    val img2DataMap = ImageUtils.img2Map("..\\..\\Input_Datasets\\train_photos",image2BizMap)
     println("img2DataMap : " + img2DataMap.size)
 
     // transform data is our input dataset, i.e. [image_id, business_id, image_vector_data, business_label]
@@ -93,42 +92,33 @@ object Main{
     // Run each label model to predict if the label is valid for the business id
     println("Starting the prediction using each label's model....")
 
-    var predictLabel1ForBusinesses = List[(String,Int)]()
-
-    val p = Future {
-
-        cnnModel1.onComplete{
-          case Success(model1) => predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, model1)
-          case Failure(e) => e.getMessage()
-        }
-
-        cnnModel0.onComplete{
-          case Success(model0) => predictLabel1ForBusinesses = predictLabel1ForBusinesses ::: doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, model0)
-          case Failure(e) => e.getMessage()
-        }
-
-        predictLabel1ForBusinesses
+    val predictions_1: Future[List[(String, Int)]] = cnnModel1.map{
+      case model1=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, model1)
     }
 
+    val predictions_0: Future[List[(String, Int)]] = cnnModel0.map{
+      case model0=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, model0)
+    }
 
-    println(" 3) Analyzing the Predictions Phase .....")
+    predictions_1.onSuccess{
+      case p1 : List[(String, Int)] => predictions_0.onSuccess{
+        case p0 : List[(String, Int)]=>
+          val all_predictions: List[(String, Int)] = p1 ::: p0
+          val predictedMap: Map[String, List[Int]] = all_predictions.map(s => (s._1, s._2))
+            .groupBy(_._1)
+            .mapValues(_.map(_._2))
 
-    // Analyse the predicted data and mark the label for the business
-    p.onComplete{
-      case Success(predictions) => {
-        val predictedMap: Map[String, List[Int]] = predictions.map(s => (s._1, s._2))
-          .groupBy(_._1)
-          .mapValues(_.map(_._2))
+          println("Final Predictions :")
+          predictedMap.foreach(println)
 
-        println("Final Predictions :")
-        predictedMap.foreach(println)
-
-        println("Analysis Done !!")
+          println("Analysis Done !!")
       }
-      case Failure(e) => println("Failed in analysis")
-
     }
 
 
   }
-}
+
+
+
+
+  }
