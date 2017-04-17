@@ -28,6 +28,8 @@ object Scoring {
     for(row <- 0 until  scores.rows()){
       sum+=scores.getRow(row).getColumn(0).toString.toDouble
     }
+    println("SUM:"+sum)
+    println("Average:"+sum/scores.rows())
     sum/scores.rows()
 
     /*
