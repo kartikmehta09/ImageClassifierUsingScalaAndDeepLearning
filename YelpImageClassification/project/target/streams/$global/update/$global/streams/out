@@ -6074,7 +6074,7 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 2732ms :: artifacts dl 179ms
+[debug] :: resolution report :: resolve 3180ms :: artifacts dl 172ms
 [debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT compile produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-compile.xml
 [debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT runtime produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-runtime.xml
 [debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT test produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-test.xml
@@ -6088,5 +6088,5 @@
 [debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT docs produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-docs.xml
 [debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT pom produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-pom.xml
 [debug] 	report for default#yelpimageclassification-build;0.1-SNAPSHOT scala-tool produced in C:\MyFiles\NEU\Scala\Project\Git\CSYE7200_Scala_Project_Team7\YelpImageClassification\project\target\resolution-cache\reports\default-yelpimageclassification-build-scala-tool.xml
-[debug] 	resolve done (2732ms resolve - 179ms download)
+[debug] 	resolve done (3180ms resolve - 172ms download)
 [info] Done updating.

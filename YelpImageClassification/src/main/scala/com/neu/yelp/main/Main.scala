@@ -1,12 +1,15 @@
 package com.neu.yelp.main
 
 
+import java.io.{File, PrintWriter}
+
 import com.neu.yelp.preprocessing.ImageUtils
 import com.neu.yelp.cnn.TrainCNN.trainModel
 import com.neu.yelp.postprocessing.TransformData
 import com.neu.yelp.cnn.PredictCNN.doPredictionForLabel
 import org.deeplearning4j.ui.api.UIServer
 import com.neu.yelp.preprocessing.Csv2Map.{bizToLabel2Map, getUniqueBizIDForTest, photoToBizId2Map}
+
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
@@ -18,7 +21,7 @@ import scala.concurrent.Future
 object Main{
 
   def main(args: Array[String]): Unit = {
-
+    val writer = new PrintWriter(new File("test.csv" ))
     /*** TRAINING & TESTING ***/
     println(" 1) Starting the training and testing phase....")
 
@@ -46,13 +49,13 @@ object Main{
 
 
     // train the model for each business label on the transformed data and save the model under results folder
-    val cnnModel1=  Future{
+    /*val cnnModel1=  Future{
       trainModel(transformedData, bizLabel = 1, "..\\Output_Models\\models_1", uIServer)
     }
 
     val cnnModel0= Future{
       trainModel(transformedData, bizLabel = 0, "..\\Output_Models\\models_0", uIServer)
-    }
+    }*/
     /*val cnnModel2= Future{
       trainModel(transformedData, bizLabel = 2, "..\\Output_Models\\models_2", uIServer)
     }
@@ -60,10 +63,10 @@ object Main{
     val cnnModel3= Future {
       trainModel(transformedData, bizLabel = 3, "..\\Output_Models\\models_3", uIServer)
     }
-
+*/
     val cnnModel4= Future{
       trainModel(transformedData, bizLabel = 4, "..\\Output_Models\\models_4", uIServer)
-    }*/
+    }
 
 
 
@@ -92,18 +95,18 @@ object Main{
     // Run each label model to predict if the label is valid for the business id
     println("Starting the prediction using each label's model....")
 
-    val predictions_1: Future[List[(String, Int)]] = cnnModel1.map{
-      case model1=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, model1)
+    val predictions_4: Future[List[(String, Int)]] = cnnModel4.map{
+      case model4=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 4, model4,writer)
     }
 
-    val predictions_0: Future[List[(String, Int)]] = cnnModel0.map{
-      case model0=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, model0)
-    }
+/*    val predictions_0: Future[List[(String, Int)]] = cnnModel0.map{
+      case model0=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, model0,writer)
+    }*/
 
-    predictions_1.onSuccess{
-      case p1 : List[(String, Int)] => predictions_0.onSuccess{
+    predictions_4.onSuccess{
+      //case p1 : List[(String, Int)] => predictions_0.onSuccess{
         case p0 : List[(String, Int)]=>
-          val all_predictions: List[(String, Int)] = p1 ::: p0
+          val all_predictions: List[(String, Int)] = p0// ::: p0
           val predictedMap: Map[String, List[Int]] = all_predictions.map(s => (s._1, s._2))
             .groupBy(_._1)
             .mapValues(_.map(_._2))
@@ -112,7 +115,7 @@ object Main{
           predictedMap.foreach(println)
 
           println("Analysis Done !!")
-      }
+    //  }
     }
 
 

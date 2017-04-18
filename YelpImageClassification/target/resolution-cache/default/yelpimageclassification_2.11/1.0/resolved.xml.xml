@@ -4,7 +4,7 @@
 		module="yelpimageclassification_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20170415151752"
+		publication="20170417213952"
 	>
 		<description>
 		YelpImageClassification
@@ -44,5 +44,6 @@
 		<dependency org="org.nd4j" name="nd4j-native-platform" rev="0.8.0" conf="compile->default(compile)"/>
 		<dependency org="org.nd4j" name="nd4s_2.11" rev="0.8.0" conf="compile->default(compile)"/>
 		<dependency org="org.nd4j" name="nd4j-backends" rev="0.8.0" conf="compile->default(compile)"/>
+		<dependency org="au.com.bytecode" name="opencsv" rev="2.4" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

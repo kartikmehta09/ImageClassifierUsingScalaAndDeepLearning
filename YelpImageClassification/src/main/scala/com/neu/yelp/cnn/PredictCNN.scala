@@ -1,6 +1,8 @@
 package com.neu.yelp.cnn
 
 
+import java.io.{File, PrintWriter}
+
 import com.neu.yelp.postprocessing.{MakeND4JDataSet, TransformData}
 import org.nd4j.linalg.api.ndarray.INDArray
 import org.nd4s.Implicits._
@@ -23,7 +25,7 @@ object PredictCNN {
     * @param transformData
     * @param modelNumber
     */
-  def doPredictionForLabel(transformData:TransformData, unpredictedBizIds: List[String], modelNumber: Int, model: MultiLayerNetwork ): List[(String, Int)]={
+  def doPredictionForLabel(transformData:TransformData, unpredictedBizIds: List[String], modelNumber: Int, model: MultiLayerNetwork ,writer:PrintWriter): List[(String, Int)]={
 
     //generate the modelPath
     val modelPath = "..\\Output_Models\\models_%1$s".format(modelNumber)
@@ -36,6 +38,7 @@ object PredictCNN {
       else model
 
     var predictionResults: List[(String, Int)] =  List[(String, Int)]()
+
 
     for( bid <- unpredictedBizIds){
       println("----Prediction for business----  " + bid)
@@ -52,8 +55,8 @@ object PredictCNN {
 
       val labelProbabilty = aggImgScores2Biz(predictedScores)
 
+      writer.write(bid+","+modelNumber+","+labelProbabilty+","+(if(labelProbabilty >= 0.5)1 else 0)+"\n")
       // If 50% of the results predict true for the label, then the business will have that label
-
       if(labelProbabilty >= 0.5)
         predictionResults = predictionResults.::((bid, modelNumber))
         println(predictionResults)

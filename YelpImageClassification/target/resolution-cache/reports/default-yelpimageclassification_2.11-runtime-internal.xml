@@ -7,8 +7,20 @@
 		revision="1.0"
 		conf="runtime-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20170415151752"/>
+		date="20170417213952"/>
 	<dependencies>
+		<module organisation="au.com.bytecode" name="opencsv">
+			<revision name="2.4" status="release" pubdate="20140813011438" resolver="public" artresolver="public" homepage="https://github.com/EmergentOrder/opencsv" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="178">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="successful" details="" size="6110" time="67" location="C:\Users\Pranay\.ivy2\cache\au.com.bytecode\opencsv\ivy-2.4.xml" searched="true" original-local-location="C:\Users\Pranay\.ivy2\cache\au.com.bytecode\opencsv\ivy-2.4.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/au/com/bytecode/opencsv/2.4/opencsv-2.4.pom"/>
+				<caller organisation="default" name="yelpimageclassification_2.11" conf="compile, runtime-internal, runtime, optional" rev="2.4" rev-constraint-default="2.4" rev-constraint-dynamic="2.4" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="opencsv" type="jar" ext="jar" status="successful" details="" size="25965" time="81" location="C:\Users\Pranay\.ivy2\cache\au.com.bytecode\opencsv\jars\opencsv-2.4.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/au/com/bytecode/opencsv/2.4/opencsv-2.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
 		<module organisation="org.nd4j" name="nd4j-backends">
 			<revision name="0.8.0" status="release" pubdate="20170310210325" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="177">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>

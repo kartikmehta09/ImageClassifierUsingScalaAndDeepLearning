@@ -14,9 +14,10 @@ libraryDependencies ++= Seq(
   "org.deeplearning4j" % "deeplearning4j-ui_2.11" % "0.8.0",
   "org.nd4j" % "nd4j-native-platform" % "0.8.0",
   "org.nd4j" % "nd4s_2.11" % "0.8.0",
-  "org.nd4j" % "nd4j-backends" % "0.8.0"
-
+  "org.nd4j" % "nd4j-backends" % "0.8.0",
+  "au.com.bytecode" % "opencsv" % "2.4"
 )
+
 
 
 
