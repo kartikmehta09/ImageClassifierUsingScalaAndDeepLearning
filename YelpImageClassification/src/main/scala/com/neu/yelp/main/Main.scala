@@ -22,6 +22,8 @@ object Main{
 
   def main(args: Array[String]): Unit = {
     val writer = new PrintWriter(new File("test.csv" ))
+    writer.write("businessId,label,averageScore,prediction\n")
+
     /*** TRAINING & TESTING ***/
     println(" 1) Starting the training and testing phase....")
 
@@ -49,21 +51,21 @@ object Main{
 
 
     // train the model for each business label on the transformed data and save the model under results folder
-    /*val cnnModel1=  Future{
+    val cnnModel1=  Future{
       trainModel(transformedData, bizLabel = 1, "..\\Output_Models\\models_1", uIServer)
     }
 
     val cnnModel0= Future{
       trainModel(transformedData, bizLabel = 0, "..\\Output_Models\\models_0", uIServer)
-    }*/
-    /*val cnnModel2= Future{
+    }
+    val cnnModel2= Future{
       trainModel(transformedData, bizLabel = 2, "..\\Output_Models\\models_2", uIServer)
     }
 
     val cnnModel3= Future {
       trainModel(transformedData, bizLabel = 3, "..\\Output_Models\\models_3", uIServer)
     }
-*/
+
     val cnnModel4= Future{
       trainModel(transformedData, bizLabel = 4, "..\\Output_Models\\models_4", uIServer)
     }
@@ -77,7 +79,7 @@ object Main{
     println("unpredictedBizIds : " + unpredictedBizIds.size)
 
     // read the image ids for the unpredicted business ids and generate the a map of image ids and business ids
-    val unpredictedImg2BizIdsMap = photoToBizId2Map("..\\Input_Datasets\\validate_train_photo_to_biz_ids.csv", unpredictedBizIds)
+    val unpredictedImg2BizIdsMap = photoToBizId2Map("..\\Input_Datasets\\train_photo_to_biz_ids.csv", unpredictedBizIds)
     println("unpredictedImg2BizIdsMap : " + unpredictedImg2BizIdsMap.size)
 
     // read the image vector data and generate the a map of image ids and image vector data
@@ -95,27 +97,46 @@ object Main{
     // Run each label model to predict if the label is valid for the business id
     println("Starting the prediction using each label's model....")
 
+    val predictions_1: Future[List[(String, Int)]] = cnnModel1.map{
+      case model1=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, model1,writer)
+    }
+
+    val predictions_0: Future[List[(String, Int)]] = cnnModel0.map{
+      case model0=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, model0,writer)
+    }
+    val predictions_2: Future[List[(String, Int)]] = cnnModel2.map{
+      case model2=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 2, model2,writer)
+    }
+
+    val predictions_3: Future[List[(String, Int)]] = cnnModel3.map{
+      case model3=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 3, model3,writer)
+    }
+
     val predictions_4: Future[List[(String, Int)]] = cnnModel4.map{
       case model4=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 4, model4,writer)
     }
 
-/*    val predictions_0: Future[List[(String, Int)]] = cnnModel0.map{
-      case model0=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, model0,writer)
-    }*/
+    predictions_1.onSuccess{
+      case p1 : List[(String, Int)] => predictions_0.onSuccess{
+        case p0 : List[(String, Int)]=> predictions_2.onSuccess {
+          case p2: List[(String, Int)] => predictions_3.onSuccess {
+            case p3: List[(String, Int)] => predictions_4.onSuccess {
+              case p4: List[(String, Int)] =>
+                val all_predictions: List[(String, Int)] = p1 ::: p0 ::: p2 ::: p3 ::: p4
+                val predictedMap: Map[String, List[Int]] = all_predictions.map(s => (s._1, s._2))
+                  .groupBy(_._1)
+                  .mapValues(_.map(_._2))
 
-    predictions_4.onSuccess{
-      //case p1 : List[(String, Int)] => predictions_0.onSuccess{
-        case p0 : List[(String, Int)]=>
-          val all_predictions: List[(String, Int)] = p0// ::: p0
-          val predictedMap: Map[String, List[Int]] = all_predictions.map(s => (s._1, s._2))
-            .groupBy(_._1)
-            .mapValues(_.map(_._2))
+                println("Final Predictions :")
+                predictedMap.foreach(println)
 
-          println("Final Predictions :")
-          predictedMap.foreach(println)
+                println("Analysis Done !!")
+                writer.close()
+            }
+          }
 
-          println("Analysis Done !!")
-    //  }
+        }
+      }
     }
 
 

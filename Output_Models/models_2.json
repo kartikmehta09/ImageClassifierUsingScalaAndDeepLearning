@@ -267,7 +267,7 @@
       }
     }
   },
-  "iterationCount" : 80,
+  "iterationCount" : 250,
   "pretrain" : false,
   "tbpttBackLength" : 20,
   "tbpttFwdLength" : 20

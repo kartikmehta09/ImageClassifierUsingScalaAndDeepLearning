@@ -55,9 +55,9 @@ object PredictCNN {
 
       val labelProbabilty = aggImgScores2Biz(predictedScores)
 
-      writer.write(bid+","+modelNumber+","+labelProbabilty+","+(if(labelProbabilty >= 0.5)1 else 0)+"\n")
+      writer.write(bid+","+modelNumber+","+labelProbabilty+","+(if(labelProbabilty >= 0.94)1 else 0)+"\n")
       // If 50% of the results predict true for the label, then the business will have that label
-      if(labelProbabilty >= 0.5)
+      if(labelProbabilty >= 0.94)
         predictionResults = predictionResults.::((bid, modelNumber))
         println(predictionResults)
     }
