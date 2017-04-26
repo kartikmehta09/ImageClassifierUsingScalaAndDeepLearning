@@ -1,0 +1,80 @@
+@(businessForm: Form[model.BusinessFormData],businesses : Seq[model.Business])(implicit request: RequestHeader)
+@main() {
+
+<form id="user-data-form" role="form" action='@routes.ApplicationController.getBusiness()' method="post" class="form-horizontal" align="center" autocomplete="off">
+
+    <fieldset class="user-fieldset">
+
+        <div class="user-form">
+            <label class="form-title" style="color: #F8741B; font-size: 22px;font-weight: bold; text-decoration:none">Search Businesses</label>
+        </div>
+        <br/>
+        <table align="center" cellspacing="20">
+            <tr>
+                <td align="left">
+                    <div class="user-form" id="biz_name_field_label">
+                        <div class="controls col-xs-offset-3 col-xs-9">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <strong>Label</strong> :
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td align="center">
+                    <div class="user-form" id="biz_name_field_value">
+                        <div class="controls col-xs-offset-3 col-xs-9">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <select id="biz_name" name="biz_name" required>
+                                    <option value="good_for_lunch">good_for_lunch</option>
+                                    <option value="good_for_dinner">good_for_dinner</option>
+                                    <option value="take_reservations">take_reservations</option>
+                                    <option value="outdoor_sitting">outdoor_sitting</option>
+                                    <option value="restaurant_is_expensive">restaurant_is_expensive</option>
+                                </select>
+                                <!--<!--&ndash;&gt;<input type="text" id="biz_name" name="biz_name" value="" placeholder="First Name" class="form-control input-lg" required>-->
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+        <br/>
+        <div class="form-actions controls ynt-btn-xlarge">
+            <button type="submit" class="btn btn-primary ynt-btn-orange">Add</button>
+        </div>
+
+    </fieldset>
+</form>
+
+<div class="user-display" >
+    <fieldset>
+        <legend align="center"><h3>Predictions for Businesses</h3></legend>
+        <table cellspacing="20">
+            <tr>
+                <th>biz_id</th>
+                <th>biz_name</th>
+                <th>good_for_lunch</th>
+                <th>good_for_dinner</th>
+                <th>take_reservations</th>
+                <th>outdoor_sitting</th>
+                <th>restaurant_is_expensive</th>
+            </tr>
+            @for(b <- businesses){
+            <tr>
+                <td>@b.biz_id</td>
+                <td>@b.biz_name</td>
+                <td>@b.good_for_lunch</td>
+                <td>@b.good_for_dinner</td>
+                <td>@b.take_reservations</td>
+                <td>@b.outdoor_sitting</td>
+                <td>@b.restaurant_is_expensive</td>
+            </tr>
+            }
+        </table>
+    </fieldset>
+</div>
+
+}

@@ -1,0 +1,6 @@
+biz_id,biz_name,good_for_lunch,good_for_dinner,take_reservations,outdoor_sitting,restaurant_is_expensive
+1,00mc6_UNO,Y,N,Y,N,Y
+2,"00kad_Qdoba Mexican Grill",Y,N,Y,N,N
+3,"00er5_Halal Indian Restuarant",Y,Y,Y,N,N
+4,"003sg_Barcelona Italian Grill",N,Y,Y,N,Y
+5,"00q7x_Sunset Grill And Tap",N,N,N,Y,Y
