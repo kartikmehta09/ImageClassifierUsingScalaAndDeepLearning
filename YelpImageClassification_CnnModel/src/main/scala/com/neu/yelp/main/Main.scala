@@ -50,7 +50,7 @@ object Main{
       trainModel(transformedData, bizLabel = 0, saveCNN= true, uIServer)
     }
 
-    val cnnModel1=  Future{
+  /*  val cnnModel1=  Future{
       trainModel(transformedData, bizLabel = 1,saveCNN= true, uIServer)
     }
 
@@ -64,10 +64,7 @@ object Main{
 
     val cnnModel4= Future{
       trainModel(transformedData, bizLabel = 4, saveCNN= true, uIServer)
-    }
-
-    // stop the ui server after the model has been trained
-    uIServer.stop();
+    }*/
 
     /*** PREDICTION ***/
     println(" 2) Starting the prediction phase....")
@@ -98,7 +95,7 @@ object Main{
       case model0=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, model0)
     }
 
-    val predictions_1: Future[List[(String, Int)]] = cnnModel1.map{
+  /*  val predictions_1: Future[List[(String, Int)]] = cnnModel1.map{
       case model1=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, model1)
     }
 
@@ -112,19 +109,19 @@ object Main{
 
     val predictions_4: Future[List[(String, Int)]] = cnnModel4.map{
       case model4=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 4, model4)
-    }
+    }*/
 
     predictions_0.onSuccess{
-      case p0 : List[(String, Int)] => predictions_1.onSuccess{
+      case p0 : List[(String, Int)] => /*predictions_1.onSuccess{
         case p1 : List[(String, Int)]=> predictions_2.onSuccess {
           case p2: List[(String, Int)] => predictions_3.onSuccess {
             case p3: List[(String, Int)] => predictions_4.onSuccess {
               case p4: List[(String, Int)] =>
-
+*/
                 /*** Analyzing the Predictions ***/
                 println(" 3) Analyzing the predictions....")
 
-                val all_predictions: List[(String, Int)] = p0 ::: p1 ::: p2 ::: p3 ::: p4
+                val all_predictions: List[(String, Int)] = p0 //::: p1 ::: p2 ::: p3 ::: p4
                 val predictedMap: Map[String, List[Int]] = all_predictions.map(s => (s._1, s._2))
                   .groupBy(_._1)
                   .mapValues(_.map(_._2))
@@ -133,11 +130,15 @@ object Main{
                   predictedMap.foreach(println)
 
                   println("Business Labels predicted using Image Classification Done !!")
-            }
-          }
 
+
+                  // stop the ui server after the model has been trained
+                  uIServer.stop();
+
+            /*}
+          }
         }
-      }
+      }*/
     }
 
   }
