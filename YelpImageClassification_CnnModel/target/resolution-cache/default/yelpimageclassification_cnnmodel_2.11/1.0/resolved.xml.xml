@@ -4,7 +4,7 @@
 		module="yelpimageclassification_cnnmodel_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20170425202038"
+		publication="20170426134116"
 	>
 		<description>
 		YelpImageClassification_CnnModel
@@ -45,5 +45,6 @@
 		<dependency org="org.nd4j" name="nd4s_2.11" rev="0.8.0" conf="compile->default(compile)"/>
 		<dependency org="org.nd4j" name="nd4j-backends" rev="0.8.0" conf="compile->default(compile)"/>
 		<dependency org="au.com.bytecode" name="opencsv" rev="2.4" conf="compile->default(compile)"/>
+		<dependency org="org.scalatest" name="scalatest_2.11" rev="2.2.4" conf="test->default(compile)"/>
 	</dependencies>
 </ivy-module>

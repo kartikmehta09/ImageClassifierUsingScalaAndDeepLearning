@@ -4,7 +4,7 @@
 		module="yelpimageclassification_cnnmodel-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20170425200842"
+		publication="20170426134047"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

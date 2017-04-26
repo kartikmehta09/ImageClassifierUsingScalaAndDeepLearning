@@ -4,6 +4,8 @@ version := "1.0"
 
 scalaVersion := "2.11.8"
 
+val scalaTestVersion = "2.2.4"
+
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % "1.6.0" % "provided",
   "org.deeplearning4j" % "deeplearning4j-core" % "0.4-rc3.8",
@@ -15,7 +17,8 @@ libraryDependencies ++= Seq(
   "org.nd4j" % "nd4j-native-platform" % "0.8.0",
   "org.nd4j" % "nd4s_2.11" % "0.8.0",
   "org.nd4j" % "nd4j-backends" % "0.8.0",
-  "au.com.bytecode" % "opencsv" % "2.4"
+  "au.com.bytecode" % "opencsv" % "2.4",
+  "org.scalatest" %% "scalatest" % scalaTestVersion % "test"
 )
 
 
