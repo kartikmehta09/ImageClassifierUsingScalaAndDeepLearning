@@ -4,7 +4,7 @@ Team7_UI - using Play and Scala
 
 
 Build a predictive model which classify user-submitted photos and automatically tag restaurants with multiple labels 
-0: good_for_lunch
+ * 0: good_for_lunch
 1: good_for_dinner
 2: takes_reservations
 3: outdoor_seating
