@@ -2,7 +2,7 @@ To run Yelp Image Classification Play UI using sbt:
 
  * `git clone` this repository
  * Update the MySQL server url, username and password in `conf/application.conf`
- * Create a `playdb` database on your MySQL server and load public\dbdump\playdb.sql dump.
+ * Create a `playdb` database on your MySQL server and load `public\dbdump\playdb.sql dump`
 
 ```mysql
     CREATE DATABASE playdb;
