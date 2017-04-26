@@ -1,13 +1,13 @@
 @(businessForm: Form[model.BusinessFormData],businesses : Seq[model.Business])(implicit request: RequestHeader)
 @main() {
 
+<div id="title"><h1 align="center" style="color:red;">Yelp Image Classification Prediction Results - Play UI</h1></div>
+
 <form id="user-data-form" role="form" action='@routes.ApplicationController.getBusiness()' method="post" class="form-horizontal" align="center" autocomplete="off">
 
     <fieldset class="user-fieldset">
+        <legend align="center"><h3 style="color:orange;">Search For Businesses</h3></legend>
 
-        <div class="user-form">
-            <label class="form-title" style="color: #F8741B; font-size: 22px;font-weight: bold; text-decoration:none">Search Businesses</label>
-        </div>
         <br/>
         <table align="center" cellspacing="20">
             <tr>
@@ -43,15 +43,17 @@
         </table>
         <br/>
         <div class="form-actions controls ynt-btn-xlarge">
-            <button type="submit" class="btn btn-primary ynt-btn-orange">Add</button>
+            <button type="submit" class="btn btn-primary ynt-btn-orange">Search</button>
         </div>
 
     </fieldset>
 </form>
 
+<br />
+
 <div class="user-display" >
     <fieldset>
-        <legend align="center"><h3>Predictions for Businesses</h3></legend>
+        <legend align="center"><h3 style="color:orange;">Predictions for Businesses</h3></legend>
         <table cellspacing="20">
             <tr>
                 <th>biz_id</th>

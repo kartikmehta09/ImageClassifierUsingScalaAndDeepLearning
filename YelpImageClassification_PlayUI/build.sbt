@@ -1,4 +1,4 @@
-name := """team7_playUI"""
+name := """YelpImageClassification_PlayUI"""
 
 version := "1.0-SNAPSHOT"
 
