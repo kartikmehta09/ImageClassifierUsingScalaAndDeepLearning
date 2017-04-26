@@ -1,4 +1,4 @@
-name := "YelpImageClassification"
+name := "YelpImageClassification_CnnModel"
 
 version := "1.0"
 

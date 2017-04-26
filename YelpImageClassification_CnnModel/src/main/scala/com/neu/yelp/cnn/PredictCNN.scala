@@ -37,7 +37,7 @@ object PredictCNN {
 
     var predictionResults: List[(String, Int)] =  List[(String, Int)]()
 
-    val writer = new PrintWriter(new File("final_predictions_%1$s.csv".format(modelNumber) ))
+    val writer = new PrintWriter(new File("results\\final_predictions_%1$s.csv".format(modelNumber) ))
     writer.write("businessId,label,averageScore,prediction\n")
 
     for( bid <- unpredictedBizIds){
