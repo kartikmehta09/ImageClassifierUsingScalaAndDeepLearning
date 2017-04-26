@@ -1,4 +1,4 @@
-# CSYE7200_Scala_Project_Team7
+﻿# CSYE7200_Scala_Project_Team7
 Yelp Image Classification Model - using scala, deeplearning4j
 Team7_UI - using Play and Scala
 
@@ -18,8 +18,6 @@ Apache Spark – Scala Integration – Convolutional Neural Network Algorithm im
 Data Cleaning & Preparation – Scala, MS Excel
 
 Magnitude of Data:
-
-In order to make the features for our convolutional neural network
 
 
 
