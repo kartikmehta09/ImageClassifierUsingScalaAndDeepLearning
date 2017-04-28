@@ -50,7 +50,7 @@ object Main{
       trainModel(transformedData, bizLabel = 0, saveCNN= true, uIServer)
     }
 
-  /*  val cnnModel1=  Future{
+    val cnnModel1=  Future{
       trainModel(transformedData, bizLabel = 1,saveCNN= true, uIServer)
     }
 
@@ -64,7 +64,7 @@ object Main{
 
     val cnnModel4= Future{
       trainModel(transformedData, bizLabel = 4, saveCNN= true, uIServer)
-    }*/
+    }
 
     /*** PREDICTION ***/
     println(" 2) Starting the prediction phase....")
@@ -95,7 +95,7 @@ object Main{
       case model0=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 0, model0)
     }
 
-  /*  val predictions_1: Future[List[(String, Int)]] = cnnModel1.map{
+    val predictions_1: Future[List[(String, Int)]] = cnnModel1.map{
       case model1=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 1, model1)
     }
 
@@ -109,15 +109,14 @@ object Main{
 
     val predictions_4: Future[List[(String, Int)]] = cnnModel4.map{
       case model4=> doPredictionForLabel(transformedDataTest, unpredictedBizIds, 4, model4)
-    }*/
+    }
 
     predictions_0.onSuccess{
-      case p0 : List[(String, Int)] => /*predictions_1.onSuccess{
+      case p0 : List[(String, Int)] => predictions_1.onSuccess{
         case p1 : List[(String, Int)]=> predictions_2.onSuccess {
           case p2: List[(String, Int)] => predictions_3.onSuccess {
             case p3: List[(String, Int)] => predictions_4.onSuccess {
               case p4: List[(String, Int)] =>
-*/
                 /*** Analyzing the Predictions ***/
                 println(" 3) Analyzing the predictions....")
 
@@ -135,10 +134,10 @@ object Main{
                   // stop the ui server after the model has been trained
                   uIServer.stop();
 
-            /*}
+            }
           }
         }
-      }*/
+      }
     }
 
   }
