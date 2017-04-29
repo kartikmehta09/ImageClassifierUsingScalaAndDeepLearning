@@ -12,10 +12,12 @@ Build a predictive model which classify user-submitted photos and automatically 
 
 # Infrastructure used in this project:
 
-User Interface – PlayFramework, Scala Controllers, Lightbend Activator JavaScript, Bootstrap, CSS, HTML
-Database – In memory database (MySQL) and Slick for database querying
-Apache Spark – Scala Integration – Convolutional Neural Network Algorithm implemented in Scala using DeepLearning4J.
-Data Cleaning & Preparation – Scala, MS Excel
+* User Interface – PlayFramework, Scala Controllers, Lightbend Activator JavaScript, Bootstrap, CSS, HTML
+* Database – In memory database (MySQL) and Slick for database querying
+* Apache Spark – Scala Integration – Convolutional Neural Network Algorithm implemented in Scala using DeepLearning4J.
+* Data Cleaning & Preparation – Scala, MS Excel
+
+# Magnitude of Dataset:
 
 * train_photos.tgz - photos of the training set  (234,545 images)
 * test_photos.tgz - photos of the test set (500 images)
