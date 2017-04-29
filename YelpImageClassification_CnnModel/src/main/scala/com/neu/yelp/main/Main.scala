@@ -1,6 +1,5 @@
 package com.neu.yelp.main
 
-import java.io.{PrintWriter, File}
 import com.neu.yelp.preprocessing.ImageUtils
 import com.neu.yelp.cnn.TrainCNN.trainModel
 import com.neu.yelp.postprocessing.TransformData
